@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Discover by Breadfast — live prototype</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Discover"/>
+<meta name="theme-color" content="#7c004f"/>
+<meta name="description" content="Discover by Breadfast - interactive prototype"/>
+<link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+<link rel="icon" href="data:image/png;base64,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"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<!-- Fonts load without blocking first paint: the page renders immediately in a
+     system font and upgrades when the webfont arrives. On a slow phone this is
+     the difference between an instant screen and a long white wait. -->
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap"/>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+<noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"/>
+</noscript>
+<style>
+/* Tailwind, precompiled. Replaces the 400 KB runtime CDN compiler so the
+   page renders immediately on a phone with no external JS dependency. */
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.-bottom-10{bottom:-2.5rem}.-bottom-4{bottom:-1rem}.-bottom-6{bottom:-1.5rem}.-bottom-8{bottom:-2rem}.-right-4{right:-1rem}.bottom-0{bottom:0}.bottom-1\.5{bottom:.375rem}.bottom-2{bottom:.5rem}.bottom-4{bottom:1rem}.bottom-6{bottom:1.5rem}.bottom-\[-10px\]{bottom:-10px}.left-0{left:0}.left-4{left:1rem}.left-5{left:1.25rem}.left-6{left:1.5rem}.right-0{right:0}.right-1\.5{right:.375rem}.right-2{right:.5rem}.right-4{right:1rem}.right-\[-10px\]{right:-10px}.top-0{top:0}.top-2{top:.5rem}.top-4{top:1rem}.z-10{z-index:10}.z-20{z-index:20}.z-40{z-index:40}.z-50{z-index:50}.z-\[100\]{z-index:100}.z-\[60\]{z-index:60}.col-span-2{grid-column:span 2/span 2}.m-1{margin:.25rem}.-mx-6{margin-left:-1.5rem;margin-right:-1.5rem}.mx-2{margin-left:.5rem;margin-right:.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mx-margin-side{margin-left:20px;margin-right:20px}.my-2{margin-top:.5rem;margin-bottom:.5rem}.my-8{margin-top:2rem;margin-bottom:2rem}.-ml-3{margin-left:-.75rem}.-mr-3{margin-right:-.75rem}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-section-gap{margin-bottom:32px}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:.5rem}.mt-20{margin-top:5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-auto{margin-top:auto}.mt-section-gap{margin-top:32px}.block{display:block}.inline-block{display:inline-block}.inline{display:inline}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-square{aspect-ratio:1/1}.aspect-video{aspect-ratio:16/9}.h-1{height:.25rem}.h-1\.5{height:.375rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-3{height:.75rem}.h-32{height:8rem}.h-4{height:1rem}.h-40{height:10rem}.h-48{height:12rem}.h-56{height:14rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-\[1px\]{height:1px}.h-\[45vh\]{height:45vh}.h-\[48px\]{height:48px}.h-\[90px\]{height:90px}.h-auto{height:auto}.h-chip-height{height:130px}.h-full{height:100%}.h-px{height:1px}.min-h-\[140px\]{min-height:140px}.min-h-\[60px\]{min-height:60px}.w-0{width:0}.w-1{width:.25rem}.w-1\.5{width:.375rem}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-16{width:4rem}.w-2{width:.5rem}.w-20{width:5rem}.w-24{width:6rem}.w-3{width:.75rem}.w-4{width:1rem}.w-6{width:1.5rem}.w-72{width:18rem}.w-8{width:2rem}.w-\[80\%\]{width:80%}.w-\[80px\]{width:80px}.w-chip-width{width:120px}.w-full{width:100%}.w-max{width:-moz-max-content;width:max-content}.min-w-\[20px\]{min-width:20px}.min-w-\[50px\]{min-width:50px}.min-w-\[85\%\]{min-width:85%}.min-w-\[90px\]{min-width:90px}.min-w-full{min-width:100%}.max-w-2xl{max-width:42rem}.max-w-\[280px\]{max-width:280px}.max-w-\[70\%\]{max-width:70%}.max-w-\[80\%\]{max-width:80%}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.translate-x-1{--tw-translate-x:0.25rem}.translate-x-1,.translate-x-5{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-x-5{--tw-translate-x:1.25rem}.-rotate-12{--tw-rotate:-12deg}.-rotate-12,.rotate-12{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-12{--tw-rotate:12deg}.rotate-\[-10deg\]{--tw-rotate:-10deg}.rotate-\[-10deg\],.scale-100{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-100{--tw-scale-x:1;--tw-scale-y:1}.scale-90{--tw-scale-x:.9;--tw-scale-y:.9}.scale-90,.scale-95{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.snap-x{scroll-snap-type:x var(--tw-scroll-snap-strictness)}.snap-center{scroll-snap-align:center}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-gutter{gap:12px}.gap-section-gap{gap:32px}.gap-x-4{-moz-column-gap:1rem;column-gap:1rem}.gap-y-1{row-gap:.25rem}.gap-y-6{row-gap:1.5rem}.-space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(-.5rem*var(--tw-space-x-reverse));margin-left:calc(-.5rem*(1 - var(--tw-space-x-reverse)))}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[20px\]{border-radius:20px}.rounded-\[24px\]{border-radius:24px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-dashed{border-style:dashed}.border-none{border-style:none}.border-\[\#F2F2F2\]{--tw-border-opacity:1;border-color:rgb(242 242 242/var(--tw-border-opacity,1))}.border-outline{--tw-border-opacity:1;border-color:rgb(138 112 122/var(--tw-border-opacity,1))}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(221 191 201/var(--tw-border-opacity,1))}.border-outline-variant\/20{border-color:rgba(221,191,201,.2)}.border-outline-variant\/30{border-color:rgba(221,191,201,.3)}.border-outline-variant\/40{border-color:rgba(221,191,201,.4)}.border-primary{--tw-border-opacity:1;border-color:rgb(124 0 79/var(--tw-border-opacity,1))}.border-surface{--tw-border-opacity:1;border-color:rgb(255 248 248/var(--tw-border-opacity,1))}.border-transparent{border-color:transparent}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.bg-\[\#00BFA5\]{--tw-bg-opacity:1;background-color:rgb(0 191 165/var(--tw-bg-opacity,1))}.bg-\[\#E0F2F1\]{--tw-bg-opacity:1;background-color:rgb(224 242 241/var(--tw-bg-opacity,1))}.bg-\[\#E1F5FE\]{--tw-bg-opacity:1;background-color:rgb(225 245 254/var(--tw-bg-opacity,1))}.bg-\[\#F2F2F2\]{--tw-bg-opacity:1;background-color:rgb(242 242 242/var(--tw-bg-opacity,1))}.bg-\[\#F6E4F0\]{--tw-bg-opacity:1;background-color:rgb(246 228 240/var(--tw-bg-opacity,1))}.bg-\[\#FAFAFA\]{--tw-bg-opacity:1;background-color:rgb(250 250 250/var(--tw-bg-opacity,1))}.bg-\[\#FCE4EC\]{--tw-bg-opacity:1;background-color:rgb(252 228 236/var(--tw-bg-opacity,1))}.bg-\[\#FFF9E1\]{--tw-bg-opacity:1;background-color:rgb(255 249 225/var(--tw-bg-opacity,1))}.bg-\[\#a6006b\]{--tw-bg-opacity:1;background-color:rgb(166 0 107/var(--tw-bg-opacity,1))}.bg-\[\#e8f5e9\]{--tw-bg-opacity:1;background-color:rgb(232 245 233/var(--tw-bg-opacity,1))}.bg-background{--tw-bg-opacity:1;background-color:rgb(255 248 248/var(--tw-bg-opacity,1))}.bg-black\/40{background-color:rgba(0,0,0,.4)}.bg-black\/5{background-color:rgba(0,0,0,.05)}.bg-black\/60{background-color:rgba(0,0,0,.6)}.bg-error-container{--tw-bg-opacity:1;background-color:rgb(255 218 214/var(--tw-bg-opacity,1))}.bg-outline-variant{--tw-bg-opacity:1;background-color:rgb(221 191 201/var(--tw-bg-opacity,1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(124 0 79/var(--tw-bg-opacity,1))}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(166 0 107/var(--tw-bg-opacity,1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(255 216 230/var(--tw-bg-opacity,1))}.bg-secondary-container{--tw-bg-opacity:1;background-color:rgb(220 221 221/var(--tw-bg-opacity,1))}.bg-secondary-container\/30{background-color:hsla(180,1%,86%,.3)}.bg-surface{--tw-bg-opacity:1;background-color:rgb(255 248 248/var(--tw-bg-opacity,1))}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(255 232 239/var(--tw-bg-opacity,1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(250 226 233/var(--tw-bg-opacity,1))}.bg-surface-container-highest{--tw-bg-opacity:1;background-color:rgb(244 221 228/var(--tw-bg-opacity,1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(255 240 243/var(--tw-bg-opacity,1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-tertiary{--tw-bg-opacity:1;background-color:rgb(10 73 0/var(--tw-bg-opacity,1))}.bg-tertiary-container{--tw-bg-opacity:1;background-color:rgb(17 100 0/var(--tw-bg-opacity,1))}.bg-tertiary-fixed{--tw-bg-opacity:1;background-color:rgb(163 247 135/var(--tw-bg-opacity,1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/20{background-color:hsla(0,0%,100%,.2)}.bg-white\/40{background-color:hsla(0,0%,100%,.4)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top,var(--tw-gradient-stops))}.from-black\/60{--tw-gradient-from:rgba(0,0,0,.6) var(--tw-gradient-from-position);--tw-gradient-to:transparent var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-primary-container{--tw-gradient-from:#a6006b var(--tw-gradient-from-position);--tw-gradient-to:rgba(166,0,107,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-primary{--tw-gradient-to:#7c004f var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-center{background-position:50%}.object-contain{-o-object-fit:contain;object-fit:contain}.object-cover{-o-object-fit:cover;object-fit:cover}.p-0{padding:0}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-margin-side{padding:20px}.px-1{padding-left:.25rem;padding-right:.25rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-margin-side{padding-left:20px;padding-right:20px}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-2{padding-bottom:.5rem}.pb-24{padding-bottom:6rem}.pb-32{padding-bottom:8rem}.pb-4{padding-bottom:1rem}.pb-40{padding-bottom:10rem}.pb-48{padding-bottom:12rem}.pb-6{padding-bottom:1.5rem}.pt-10{padding-top:2.5rem}.pt-20{padding-top:5rem}.pt-4{padding-top:1rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-body-lg,.font-body-sm,.font-headline-lg-mobile,.font-headline-md,.font-label-bold,.font-label-md{font-family:Be Vietnam Pro}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[14px\]{font-size:14px}.text-\[160px\]{font-size:160px}.text-\[16px\]{font-size:16px}.text-\[18px\]{font-size:18px}.text-\[20px\]{font-size:20px}.text-\[24px\]{font-size:24px}.text-\[26px\]{font-size:26px}.text-\[28px\]{font-size:28px}.text-\[56px\]{font-size:56px}.text-\[80px\]{font-size:80px}.text-body-lg{font-size:16px;line-height:24px;font-weight:400}.text-body-sm{font-size:14px;line-height:20px;font-weight:400}.text-headline-lg-mobile{font-size:26px;line-height:32px;letter-spacing:-.02em;font-weight:700}.text-headline-md{font-size:20px;line-height:28px;font-weight:700}.text-label-bold{font-weight:700}.text-label-bold,.text-label-md{font-size:12px;line-height:16px}.text-label-md{font-weight:500}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-\[\#2e7d32\]{--tw-text-opacity:1;color:rgb(46 125 50/var(--tw-text-opacity,1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26/var(--tw-text-opacity,1))}.text-on-background{--tw-text-opacity:1;color:rgb(37 24 29/var(--tw-text-opacity,1))}.text-on-error-container{--tw-text-opacity:1;color:rgb(147 0 10/var(--tw-text-opacity,1))}.text-on-primary{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-on-primary-container{--tw-text-opacity:1;color:rgb(255 182 212/var(--tw-text-opacity,1))}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(61 0 36/var(--tw-text-opacity,1))}.text-on-secondary-container{--tw-text-opacity:1;color:rgb(95 97 97/var(--tw-text-opacity,1))}.text-on-surface{--tw-text-opacity:1;color:rgb(37 24 29/var(--tw-text-opacity,1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(87 65 73/var(--tw-text-opacity,1))}.text-on-tertiary-container{--tw-text-opacity:1;color:rgb(140 223 115/var(--tw-text-opacity,1))}.text-on-tertiary-fixed{--tw-text-opacity:1;color:rgb(2 33 0/var(--tw-text-opacity,1))}.text-outline-variant{--tw-text-opacity:1;color:rgb(221 191 201/var(--tw-text-opacity,1))}.text-primary{--tw-text-opacity:1;color:rgb(124 0 79/var(--tw-text-opacity,1))}.text-secondary{--tw-text-opacity:1;color:rgb(93 95 95/var(--tw-text-opacity,1))}.text-tertiary{--tw-text-opacity:1;color:rgb(10 73 0/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-0{opacity:0}.opacity-10{opacity:.1}.opacity-100{opacity:1}.opacity-20{opacity:.2}.opacity-30{opacity:.3}.opacity-50{opacity:.5}.opacity-60{opacity:.6}.opacity-70{opacity:.7}.opacity-80{opacity:.8}.opacity-90{opacity:.9}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color)}.shadow,.shadow-\[0_-4px_24px_rgba\(0\2c 0\2c 0\2c 0\.05\)\]{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_-4px_24px_rgba\(0\2c 0\2c 0\2c 0\.05\)\]{--tw-shadow:0 -4px 24px rgba(0,0,0,.05);--tw-shadow-colored:0 -4px 24px var(--tw-shadow-color)}.shadow-\[0_4px_12px_rgba\(0\2c 0\2c 0\2c 0\.05\)\]{--tw-shadow:0 4px 12px rgba(0,0,0,.05);--tw-shadow-colored:0 4px 12px var(--tw-shadow-color)}.shadow-\[0_4px_12px_rgba\(0\2c 0\2c 0\2c 0\.05\)\],.shadow-inner{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgba(0,0,0,.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-primary\/10{--tw-shadow-color:rgba(124,0,79,.1);--tw-shadow:var(--tw-shadow-colored)}.shadow-primary\/20{--tw-shadow-color:rgba(124,0,79,.2);--tw-shadow:var(--tw-shadow-colored)}.outline{outline-style:solid}.ring-0{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-0,.ring-2{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-primary{--tw-ring-opacity:1;--tw-ring-color:rgb(124 0 79/var(--tw-ring-opacity,1))}.drop-shadow-lg{--tw-drop-shadow:drop-shadow(0 10px 8px rgba(0,0,0,.04)) drop-shadow(0 4px 3px rgba(0,0,0,.1))}.drop-shadow-lg,.grayscale{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-md,.backdrop-blur-sm{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-100{transition-duration:.1s}.duration-200{transition-duration:.2s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.duration-\[2000ms\]{transition-duration:2s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.placeholder\:text-secondary::-moz-placeholder{--tw-text-opacity:1;color:rgb(93 95 95/var(--tw-text-opacity,1))}.placeholder\:text-secondary::placeholder{--tw-text-opacity:1;color:rgb(93 95 95/var(--tw-text-opacity,1))}.hover\:bg-\[\#E8E8E8\]:hover{--tw-bg-opacity:1;background-color:rgb(232 232 232/var(--tw-bg-opacity,1))}.hover\:bg-surface-container:hover{--tw-bg-opacity:1;background-color:rgb(255 232 239/var(--tw-bg-opacity,1))}.hover\:bg-surface-container-low:hover{--tw-bg-opacity:1;background-color:rgb(255 240 243/var(--tw-bg-opacity,1))}.hover\:bg-opacity-90:hover{--tw-bg-opacity:0.9}.hover\:text-on-surface-variant:hover{--tw-text-opacity:1;color:rgb(87 65 73/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-80:hover{opacity:.8}.hover\:opacity-90:hover{opacity:.9}.hover\:shadow-sm:hover{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-0:focus,.focus\:ring-2:focus{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(124 0 79/var(--tw-ring-opacity,1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95}.active\:scale-95:active,.active\:scale-\[0\.98\]:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98}.active\:bg-surface-container-high:active{--tw-bg-opacity:1;background-color:rgb(250 226 233/var(--tw-bg-opacity,1))}.group:hover .group-hover\:translate-x-1{--tw-translate-x:0.25rem}.group:hover .group-hover\:scale-105,.group:hover .group-hover\:translate-x-1{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-100{opacity:1}.dark\:bg-surface-container-low:is(.dark *){--tw-bg-opacity:1;background-color:rgb(255 240 243/var(--tw-bg-opacity,1))}.dark\:text-on-surface-variant:is(.dark *){--tw-text-opacity:1;color:rgb(87 65 73/var(--tw-text-opacity,1))}.dark\:text-primary-fixed:is(.dark *){--tw-text-opacity:1;color:rgb(255 216 230/var(--tw-text-opacity,1))}.dark\:text-secondary-fixed-dim:is(.dark *){--tw-text-opacity:1;color:rgb(198 198 199/var(--tw-text-opacity,1))}
+</style>
+<style>
+  /* ---- styles collected verbatim from the eight source pages ---- */
+  body{font-family:'Be Vietnam Pro',sans-serif;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .fill-icon{font-variation-settings:'FILL' 1}
+  .custom-shadow{box-shadow:0 4px 6px -1px rgba(0,0,0,.05),0 2px 4px -1px rgba(0,0,0,.03)}
+  .hide-scrollbar::-webkit-scrollbar,.no-scrollbar::-webkit-scrollbar,.screen::-webkit-scrollbar{display:none}
+  .hide-scrollbar,.no-scrollbar,.screen{-ms-overflow-style:none;scrollbar-width:none}
+  .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr)}
+  .glass-card{background:rgba(255,255,255,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .safe-bottom{padding-bottom:env(safe-area-inset-bottom,24px)}
+  .pb-safe{padding-bottom:env(safe-area-inset-bottom)}
+  .ticket-perforation{background-image:radial-gradient(circle at 0 50%,transparent 10px,#fff 10px);background-size:100% 20px}
+  .success-animation{animation:bounceIn .8s cubic-bezier(.34,1.56,.64,1)}
+  @keyframes bounceIn{0%{transform:scale(.3);opacity:0}50%{transform:scale(1.05);opacity:1}70%{transform:scale(.9)}100%{transform:scale(1)}}
+  .qr-gradient{background:linear-gradient(135deg,#7c004f 0%,#a6006b 100%)}
+
+
+  /* ---- guard: the payment overlay carries BOTH `flex` and `hidden`. It stays
+     hidden only because Tailwind emits .hidden after .flex. Restating it here,
+     after the compiled sheet and with !important, removes that dependency
+     entirely - the overlay cannot appear unless the JS removes .hidden. ---- */
+  .hidden{display:none!important}
+
+  /* ---- prototype shell (does not touch the screen designs) ---- */
+  body{background:#e9e9ef;display:flex;flex-direction:column;align-items:center;padding:26px 16px 56px;margin:0}
+  .title{font-size:14px;font-weight:700;color:#55555f;margin-bottom:14px}
+  /* transform on the frame makes each screen's position:fixed elements
+     anchor to the phone instead of the browser window */
+  .phone{width:390px;height:844px;background:#fff;border-radius:44px;border:9px solid #111;
+    position:relative;overflow:hidden;transform:translateZ(0);box-shadow:0 24px 60px rgba(0,0,0,.22)}
+  /* NB: the Date & Guests screen carries Tailwind's `flex flex-col` classes.
+     Tailwind's stylesheet is injected after this one, so a plain
+     `.screen{display:none}` loses to `.flex{display:flex}` and that screen
+     stayed painted on top of Home. Hiding via :not(.active) + !important
+     wins, and lets the active screen keep its own display mode. */
+  .screen{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden}
+  .screen:not(.active){display:none!important}
+  .flow{max-width:900px;margin-top:24px;display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+  .flow button{border:1.4px solid #cfcfd8;background:#fff;color:#44444e;border-radius:999px;
+    padding:7px 14px;font-family:inherit;font-size:12.5px;font-weight:500;cursor:pointer}
+  .flow button.on{background:#a6006b;border-color:#a6006b;color:#fff;font-weight:700}
+  .hint{margin-top:12px;font-size:12px;color:#7a7a85;text-align:center;max-width:560px;line-height:1.6}
+
+  /* ---- live demo on a real phone: fill the screen, hide the desk shell ---- */
+  html{-webkit-text-size-adjust:100%}
+  @media (max-width:780px){
+    body{padding:0;margin:0;background:#fff8f8;display:block;overscroll-behavior:none}
+    .title,.flow,.hint{display:none!important}
+    .phone{width:100vw;height:100vh;height:100dvh;
+      border:0;border-radius:0;box-shadow:none}
+  }
+  .screen{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  /* if a remote image fails on venue wi-fi the card still reads as designed */
+  img.img-fallback{visibility:hidden}
+  .imgwrap-failed{background:linear-gradient(135deg,#ffe8ef 0%,#fad3e4 100%)}
+
+</style>
+</head>
+<body>
+<div class="title">Entertainment by Breadfast — clickable prototype</div>
+<div class="phone" id="phone">
+
+<!-- ============================ 1 · HOME ============================ -->
+<section class="screen active bg-surface text-on-surface" id="s-home">
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center px-margin-side py-4 w-full">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="text-headline-md font-headline-md font-bold text-primary">Home</span>
+<span class="material-symbols-outlined text-primary text-[20px]">expand_more</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-md font-label-md text-secondary">Delivery in</span>
+<span class="bg-[#e8f5e9] text-[#2e7d32] px-2 py-0.5 rounded-md text-label-bold font-label-bold">60 - 70 minutes</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="hover:opacity-80 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-primary text-[28px]">chat_bubble_outline</span>
+</button>
+<button class="hover:opacity-80 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-primary text-[28px]">card_giftcard</span>
+</button>
+</div>
+</header>
+<main class="pb-24">
+<!-- Explore Breadfast Grid -->
+<section class="mt-4 px-margin-side">
+<h2 class="text-headline-md font-headline-md mb-4 text-on-surface">Explore Breadfast</h2>
+<div class="grid grid-cols-2 gap-3">
+<!-- Row 1 -->
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="text-body-lg font-bold leading-tight">Supermarket</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="A clean 3D illustration of a paper grocery bag filled with fresh vegetables like carrots and bread, standing on a minimalist surface with a Breadfast logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBpohEpUmI-KdbmqueuN7lRr1KfQhzeATK-E45J2i_uk4wo-Zdtqys0dcmKELqlTvipYGRqQgGxta43l2sAhk1IFXikCSU2BGu2HlbQEGkEFDv9l-E92uGTPS7epjzYmY2xqvqEZBw8Zb-ArYb312eoN77K84rY6SXo78nINM5z776JG34lCPGZzgzxtqgNImf-ASIIW9I3K5QDy4PZ2XN6vOyIAuAZYI9e5TQ_tB4JTQGruAofrh3"/>
+</div>
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="absolute top-2 right-2 bg-[#a6006b] text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">New</span>
+<span class="text-body-lg font-bold leading-tight">Restaurants</span>
+<span class="text-label-md text-secondary">Up to 50% off</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="A juicy, high-quality 3D rendered cheeseburger with melting cheese and fresh lettuce, floating against a clean soft gray background with vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV4IJ4c9ghy9DKgHBBFdL3P3JMa8a9lxJ3IltcUIhMLwSsjodQ7hyo9Pr08uXSQCbJ14Xfp8_afxM8m2ifgqqnpG5uoTpwHQ07E_IWe5AOdXho3mSr46tRZ4zR1sniZKBzuqwnF4xN_t_nV66zEpiesXPCjPnPrB5bVnLb3DVuG3ce8hZ76iZbXzhzsd7deQBaxx2Wj_MQlmj8Zso9B6Tq3UPlYa53CpRVTm1YaARwzG2QPlS-onxI"/>
+</div>
+<!-- Row 2 -->
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="text-body-lg font-bold leading-tight">Summer<br/>essentials</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="A playful 3D pink flamingo pool floaty with a matte finish, depicted in a stylish 3D isometric perspective on a soft gray background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3fqD0CMJEJwgD9jJKxhhj4kaddGUoBVP5DBXLv-h6N0TNfeKath4AypyKIYYSuB92b7KgQLyvL7TUj_ZD6Zcvd0WV3iw9q8bmAvSwgG0cQERaJ70aab3VMfjJJuqgJp3qbgdS21a7gji6xOyKsYWbc9BskUZ5FTIDy1iKyftxmDDEUsVtYMhbf_EXIDxoleSTK2Nqjxhb7_cWKqoJvOiYNMH-Y4l1boDU8aBR-Ym29rK2caBxpu2K"/>
+</div>
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="text-body-lg font-bold">Coffee</span>
+<span class="text-label-md text-secondary">Back 7:00 AM</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="A realistic 3D takeaway iced coffee cup with condensation drops and a straw, featuring a coffee label, rendered in a modern clean corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZixyGV_ZeujbiCIpIN6eMviQq_Lk-M1vmSUfxElJFrIa90h_IKTdrFCQdB0vPlVkll2iBNt8mDlRPj_KbhIlAyklRQDPQHxjsW_ERjWYIaryy-vWAvStHNfTrnvQldo0faUEqhXTgu5hwWr2XAb8N-cQiDsEe9LYBQMl6EzD3nExhcqiRAtyABZXxuKO3DRKTPLdYdFCOxYA0ISaeLOXXRi0rWR4r9vqr-iZqytsty84zc8dWHAYN"/>
+</div>
+<!-- Row 3 -->
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="text-body-lg font-bold">Beauty</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="An elegant 3D perfume bottle made of amber glass with a sophisticated metallic cap, standing on a neutral surface with soft studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4XaAkoC4thBYoTVfiR86a_DEwSdzsA18-e-YA3tmGltYc-F3xq_GTQ4aJPloRWYtTlulhc0V2ZiBuHkHe4hTGnGsjuQMe_tkQCkNF-AKszPoXywHidUgdoVSzwXNfcBDzP7B1Ntsqk3w0hiWQj3Vrh5OhS_OBbbKe3aMUwVRDbdNNONIRm0zpVN4-DciGoQH5NHUmlyAJM5s_OOzm3Kk7EX3LUmIS7-orUMmzYC9UF_E1jINeU2DO"/>
+</div>
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="text-body-lg font-bold">Shops</span>
+<span class="text-label-md text-secondary">Next Day</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="Modern 3D over-ear wireless headphones in a sleek matte gray and white finish, depicted as a premium lifestyle electronic product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2EW4ws47a9NLS2LRwix_DZ4A-mgJNadS7GWLdVkU4EBy6bNk8XGsxi2JFiJ_1V53reYGNuyqXiRlqudfTM87aTH5jwcTsIY8LEvCi0t__F_k72kaMJPozxap6hjt3lJqzEBQNQdJeA5ss51bjPQpoE3HRg1uSrXpFadMtC8KrdsqTEw_p6XgYM0tGz7a_lDsSEfcinNeUTyUx4gCo7PvnDDFwuIWGKyvTPq7iY1Hz5YsupXJ81HcV"/>
+</div>
+<!-- Row 4 -->
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="absolute top-2 right-2 bg-[#a6006b] text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">New</span>
+<span class="text-body-lg font-bold">Chef</span>
+<span class="text-label-md text-secondary">on-Demand</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="A cute 3D chef's hat with a wooden spoon, rendered in a soft claymorphism style, representing gourmet cooking services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEC09w2uj729TvibR1_pI-b5p3idzRiE8SocRI-22HrxjIGFutZhbJESUNOodIE-tppVOjjoyBjd-1OleliOqp9tINlqX_Z4O7TQOxA8QY3ZVrCIh-ekQ5MlloP3uZlhuHh3G3POm_GhelJCVugIskkMpahatv5xpF6u-tAN6tY9k8177bbZ2XYs3J0rD91-tdyd0X9DQELOjcbZQQY8KOdGvGy4taHv_63-zo4wtEI4D1u-5RaiK"/>
+</div>
+<div style="padding-right:58px" class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer">
+<span class="absolute top-2 right-2 bg-[#a6006b] text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">New</span>
+<span class="text-body-lg font-bold">Travel</span>
+<span class="text-label-md text-secondary">with Journeys</span>
+<img loading="lazy" decoding="async" class="absolute right-1.5 bottom-1.5 w-12 h-12 object-contain" data-alt="A miniature 3D scene of a beach umbrella and a striped lounge chair on a small patch of sand, conveying a vacation and travel vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL4IT2uLh5AD5j8Wsol5fu5iWfYMBizSA6o2zC9-O3Q04n9O2KNO-LR0uN7fChUi5WdKjNUiSeHZr8bScwpiXJ1EgUEi02fVXscOwzQhLrLbA_aLPNVtFCyYvfogVK-bRjfq54KMjIOc2N-6rZteoTG2P9vO1KfRa2-ScXvyPSvBucDkQiCYWsxgUpiHs0wU7IqFQyn_F2xRbxk1O3L1MImUmByZJENblPwKFm3ML7l6NAnMf3NZCL"/>
+</div>
+<!-- Row 5 -->
+<div class="bg-[#F2F2F2] rounded-[24px] p-4 h-[90px] relative flex flex-col justify-center overflow-hidden hover:opacity-90 cursor-pointer col-span-2" data-go="s-ent">
+<span class="absolute top-2 right-2 bg-primary-container text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">New</span>
+<span class="text-body-lg font-bold">Entertainment</span>
+<span class="text-label-md text-secondary">Book things to do</span>
+<div class="absolute right-4 bottom-2 flex items-center gap-2 h-full">
+<img loading="lazy" decoding="async" class="w-16 h-16 object-contain drop-shadow-lg" data-alt="A 3D vibrant red and white popcorn bucket and a pair of golden movie tickets, rendered with a high-energy cinematic style for an entertainment app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATEBsg0SaAtwWnyK4tLPiKcVVWlGaVOX0ZaeVL1NX60paKPm8bFIXh9fiohiol0VjL68d5VXEqkaZdNQtVy5ndAxvZSUJoaTOcsS_bQCwjtxaEwiQiO3y52qLY2DovgOXHfeKxgEwllqL0wPTSud1lqTLh2XcygcmF3KfgWjibSvD4s2F0rqWBLSpnQFo6SYNmIH1khBIr_kAKnSFKiVk7m6-5AN5s0s0bz2do7QCrezUxNzxHpWw8"/>
+</div>
+</div>
+</div>
+</section>
+<!-- All Categories Scroller -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-center px-margin-side mb-4">
+<h2 class="text-headline-md font-headline-md text-on-surface">All categories</h2>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar px-margin-side gap-gutter">
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-[#E1F5FE] rounded-2xl flex flex-col items-center justify-between p-3 relative overflow-hidden">
+<span class="text-label-bold font-label-bold text-center z-10">Summer essentials</span>
+<img loading="lazy" decoding="async" class="absolute bottom-0 w-full h-auto object-cover" data-alt="A stylized 2D graphic of a sun over ocean waves with a starfish, part of a cheerful summery illustration set." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjHikm_5HV0XztNJUcWmIwBGmhWKOSWjIxuZtW7NxvtCdhrGib6RWLnqVaHsYPChMHTOrF0Fyu2AYzDYfy8jH9noYQ1qHn0NfHAMsoYqNebkAfLNttPlpMk1cRWS-QoYLWi8uYG6g1lkTHqByjvmM49wLl5mD8M9ANoLkS7cydjjA0_97YY2UbqoKuHwk8FR7tcw9wTJJnBXAw4dyerHq0oDu22n3V5tZEVj3M8BPI5YJKMg0KyTLn"/>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-[#E0F2F1] rounded-2xl flex flex-col items-center justify-between p-3 relative overflow-hidden">
+<span class="text-label-bold font-label-bold text-center z-10">Deals</span>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-[#00BFA5] text-white font-bold py-1 px-4 rotate-[-10deg] shadow-lg">LIMITED TIME</div>
+</div>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-[#FFF9E1] rounded-2xl flex flex-col items-center justify-between p-3 relative overflow-hidden">
+<span class="text-label-bold font-label-bold text-center z-10">By Breadfast</span>
+<img loading="lazy" decoding="async" class="absolute bottom-0 w-full h-auto object-cover" data-alt="Hand-drawn artistic illustration of healthy breakfast snacks including yogurt, nuts, and a bottle of juice in soft warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtRAO6nS9rTMBXvk3SchO1WMpLduZb22bqk9ZFTotfCXhIYMtkNLNRyN5Gxk46I1Twjwa-YjRBCgLUWDCXkbMMNLO9U2vVlhn9T8WhyaDLbtInDJmgNqnwQTD8PdtEppC5bH8ZqlLF8k-eZvgaY8RYyHi-kytAAD368GC54HOFIfQMs5FXCZ38FZzcpqG836fxax4xjsfsK6L6F0Svlk3PKavqwkutMTd3RGxksxnKBwZOnZadupyW"/>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-[#FCE4EC] rounded-2xl flex flex-col items-center justify-between p-3 relative overflow-hidden" data-go="s-ent">
+<span class="text-label-bold font-label-bold text-center z-10">Entertainment</span>
+<img loading="lazy" decoding="async" class="absolute bottom-0 w-full h-auto object-cover" data-alt="A festive illustration for an entertainment category showing movie film reels and musical notes in a modern clean artistic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4_1395M9JJwoMwc9MDBFmtLzAbkOkZ9GVA0QSn4oEjT-Op7hhAJef8g2rhYiiHn762dO1edUQ1EAmF2P8VpvLZx4tBytSnMVxWYDc_b5zJzGH-70A8Ynz1TJhNd6x0l4IGVHcLiiPhJau51UjJbBVMCHQjsDe--diUakBLvdD9yS4SAvWyPwk--PYP9LtMnzT3tZxhnGqtyjQ-AUdb8EgCComyrajkDBEtV6uwMrl0uPud1WVQxLF"/>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-[#FAFAFA] rounded-2xl flex flex-col items-center justify-between p-3 relative overflow-hidden border border-[#F2F2F2]">
+<span class="text-label-bold font-label-bold text-center z-10 leading-tight">Bakeries &amp; Pastries</span>
+<img loading="lazy" decoding="async" class="absolute bottom-[-10px] right-[-10px] w-24 h-24 object-contain" data-alt="A close-up high resolution photo of fresh sesame-crusted bread rolls against a light studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlow7irux3ab7EGHNANml7liZoeeT8Tk4cf4gEHrSKbqSUEyZm88L8ndOCK5oS3j6M0JxR3W4ZXK4gr3XYt75saJVF7mmCwFzLvrMuCHNTc6oPhQ86evK-LP_Ak3FfoZMetxUeFp37P68VAlHKKAzn7uVsYQUp1fzA5oXVdsLIRZZbcTgN6nn9HgCP1pSwMmfjd-P99jDl6yHGhJhpm0uqpbYajKTALk4K3onjM_WLypNHfkSTgPM3"/>
+</div>
+</div>
+</section>
+<!-- Second Row of Category Cards -->
+<section class="mt-4 px-margin-side grid grid-cols-2 gap-3">
+<div class="bg-[#F2F2F2] rounded-2xl p-4 flex flex-col gap-2 min-h-[140px] hover:shadow-sm transition-shadow">
+<span class="text-label-bold font-label-bold">Breadfast Coffee</span>
+<img loading="lazy" decoding="async" class="mt-auto h-20 object-contain self-center" data-alt="Premium packaging of ground coffee beans and a matching coffee cup in soft purple and beige colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVDAyPIHLogdPxFxopEuKQxKm0LZ-nocpmwlYIK-Ht9rHtsq1lEEc2SQPrmgMKKY4YZNY0UqlWu_rj0YA7EH97dZdSTIf27b0P4KA2u_edUwd7mCHopZXls-eJAaEaNPp4FWf2teFbZOCbj6aWIIw4ixCWYGTErDYi6OR_f9WfqMJH1xIri_nzktst82T8PDi4IVzpw9z70E9-nmjyTqnvhn1tJvBt2OU_qNxP8BTDnvSRxDjEGvPR"/>
+</div>
+<div class="bg-[#F2F2F2] rounded-2xl p-4 flex flex-col gap-2 min-h-[140px] hover:shadow-sm transition-shadow">
+<span class="text-label-bold font-label-bold">Desserts &amp; Ice Cream</span>
+<img loading="lazy" decoding="async" class="mt-auto h-20 object-contain self-center" data-alt="A colorful package of gourmet ice cream and sweet treats on a clean background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQc8uJJCQQijtdoDtMkvV_d2aTvIbTzDH7h-02hWTp2lZXWY4yQvguW-une4-UmaUs7D2_NXNd88SZw_gaOrUYwqBardHasYgLRQhTQH7TXhGZaisRwRBNOu1lWa_N5zloFUr-HWFw_3aW4HVmIcIMqUIHxZw2FGeHe5EVKYxXOuYsVDTD6B2HT2Wt-fKPQd6i7nh05v9LjTUTfeMErYWNcAc8-pt6b7lu0OsukzLKk7Vmu28lfTFU"/>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant pb-safe">
+<button class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 transition-all" data-go="s-home">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" data-go="s-ent">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-md font-label-md mt-1">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md mt-1">Cart</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" data-go="s-bookings">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-label-md font-label-md mt-1">Pay</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" data-go="s-bookings">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-label-md font-label-md mt-1">More</span>
+</button>
+</nav>
+</section>
+
+<!-- ==================== 2 · ENTERTAINMENT HOME ==================== -->
+<section class="screen bg-surface text-on-surface" id="s-ent">
+<nav class="fixed top-0 w-full z-[60] bg-surface dark:bg-surface-container-low flex justify-between items-center px-margin-side py-4">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:opacity-80 scale-95 duration-100 transition-transform" data-back>chevron_left</button>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface-variant">Delivering to</span>
+<span class="text-headline-md font-headline-md font-bold text-on-surface dark:text-on-surface-variant">Home</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:opacity-80 scale-95 duration-100 transition-transform">search</button>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed hover:opacity-80 scale-95 duration-100 transition-transform">shopping_cart</button>
+</div>
+</nav>
+<main class="pt-20 pb-32">
+<!-- Category Horizontal Rail -->
+<section class="mt-4">
+<div class="flex overflow-x-auto hide-scrollbar gap-gutter px-margin-side" data-chiprail>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-primary-container rounded-xl p-3 flex flex-col justify-between items-center text-center relative overflow-hidden group">
+<span class="text-label-bold font-label-bold text-on-primary-container z-10">Newly Added</span>
+<div class="absolute -bottom-4 -right-4 w-16 h-16 bg-surface-container-highest rounded-full opacity-30 group-hover:scale-110 transition-transform"></div>
+<span class="material-symbols-outlined text-on-primary-container text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">new_releases</span>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-surface-container-low rounded-xl p-3 flex flex-col justify-between items-center text-center group border border-outline-variant">
+<span class="text-label-bold font-label-bold text-secondary">Deals</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">sell</span>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-secondary-container rounded-xl p-3 flex flex-col justify-between items-center text-center group">
+<span class="text-label-bold font-label-bold text-on-secondary-container">Cinema</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-2">movie</span>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-surface-container-highest rounded-xl p-3 flex flex-col justify-between items-center text-center group">
+<span class="text-label-bold font-label-bold text-on-surface-variant">Theater</span>
+<span class="material-symbols-outlined text-primary text-4xl mb-2">theater_comedy</span>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-secondary-container rounded-xl p-3 flex flex-col justify-between items-center text-center group">
+<span class="text-label-bold font-label-bold text-on-secondary-container">Concerts</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-2">music_note</span>
+</div>
+<div class="flex-shrink-0 w-chip-width h-chip-height bg-secondary-container rounded-xl p-3 flex flex-col justify-between items-center text-center group">
+<span class="text-label-bold font-label-bold text-on-secondary-container">Museums</span>
+<span class="material-symbols-outlined text-secondary text-4xl mb-2">museum</span>
+</div>
+</div>
+</section>
+<!-- Banner Carousel -->
+<section class="mt-section-gap overflow-x-hidden">
+<div class="flex gap-4 px-margin-side overflow-x-auto hide-scrollbar snap-x">
+<div class="min-w-[85%] bg-primary-container rounded-2xl p-6 text-on-primary-container relative overflow-hidden snap-center">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="space-y-2">
+<span class="text-label-bold font-label-bold bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full uppercase tracking-wider">Tuesday Special</span>
+<h2 class="text-headline-md font-headline-md leading-tight">2 tickets for the price of 1 — At the Cinema</h2>
+</div>
+<button class="mt-4 w-max bg-white text-primary font-bold px-6 py-2 rounded-xl text-label-md hover:bg-opacity-90 transition-all" data-go="s-venue">Book Now</button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-10 -right-4 text-[160px] opacity-10 text-white rotate-12">confirmation_number</span>
+</div>
+<div class="min-w-[85%] bg-tertiary-container rounded-2xl p-6 text-on-tertiary-container relative overflow-hidden snap-center">
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="space-y-2">
+<span class="text-label-bold font-label-bold bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full uppercase tracking-wider">Family Weekend</span>
+<h2 class="text-headline-md font-headline-md leading-tight">Save 20% on water park family passes this weekend</h2>
+</div>
+<button class="mt-4 w-max bg-white text-tertiary font-bold px-6 py-2 rounded-xl text-label-md hover:bg-opacity-90 transition-all" data-go="s-venue">Explore Parks</button>
+</div>
+<span class="material-symbols-outlined absolute -bottom-10 -right-4 text-[160px] opacity-10 text-white rotate-12">qr_code_2</span>
+</div>
+</div>
+</section>
+<!-- Explore Near You -->
+<section class="mt-section-gap px-margin-side">
+<div class="flex justify-between items-end mb-4">
+<h3 class="text-headline-md font-headline-md">Explore near you</h3>
+<button class="text-label-md font-label-md text-primary font-bold">See all</button>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar gap-4 pb-4">
+<div class="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant" data-go="s-venue">
+<div class="h-40 w-full relative">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="A grand cinematic theater entrance with plush magenta velvet curtains and glowing golden neon signage for VOX Cinemas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJJMsNGmZPDEYlAaacaTntMwClsl2bes9ehIIOB0t3hhhrsN1LQJsSg-8XGcv-bUYq8JFdqdzJywFpQh7vdoq2kJMNOn3e4F7sCDfkAEpV8FAI8UqHTxqDmrXTNOBuHINTGfWaGVHdwZYCqvmpOyuZdTOConFTtT3DoumrurMQJJrrqmgikPmG764HumiANyNtSAlmp-PUmYd1dC6PxpCtp9V10zjFO6hzVU-Axy1N3NcpQ6uzpCft"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-bold font-label-bold text-on-surface">4.8</span>
+</div>
+</div>
+<div class="p-4 space-y-1">
+<h4 class="text-body-lg font-bold">VOX Cinemas Mall of Egypt</h4>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-md font-label-md">5.6 km away • 6th of October</span>
+</div>
+<p class="text-label-bold font-label-bold text-primary mt-2">From EGP 150</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant" data-go="s-venue">
+<div class="h-40 w-full relative">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="A wide cinematic shot of a modern rooftop cinema in Cairo during sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQecaaarb6vgd5WMWK_2wplCIPHLBDO2Fw-ZJJynTW9N2J5mpgX8oozu-QWJAvNkXK-4WrYCXAAJ13vFSibvjhEVpKvRfyMFpNIGPOidBLOmJq5ambHt4FcTiHUJ-ZZl-vx8cXFR_E0LTTwjHr3QInzMCgw7Un_uBD6QTrLeTcWUHDhboCQDWjE-IbQxVqPWJzERQUv2lJ2bYLWtiPmVphZoIrrkMdp6RZh2SwLGZA98J7fApL8DL9"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-bold font-label-bold text-on-surface">4.8</span>
+</div>
+</div>
+<div class="p-4 space-y-1">
+<h4 class="text-body-lg font-bold">The Rooftop Cinema</h4>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-md font-label-md">2.4 km away • Zamalek</span>
+</div>
+<p class="text-label-bold font-label-bold text-primary mt-2">From EGP 120</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-72 bg-white rounded-2xl overflow-hidden shadow-sm border border-outline-variant" data-go="s-venue">
+<div class="h-40 w-full relative">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="An indoor high-tech bowling alley and arcade center with neon lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoqCay5d4iEgLMQ-qUsJQnYdaXelGF-1DLNmW5VYZDOwoRVvRVd2WTT63BbFJVaxvCkNP29XEubNeCbbxHX5rGaqCLTKVdcaeCuwKpptO6_Yu9koKVeN849HUOXVsiqrro4cJhiJiXU-xw15rillENxFX_4hOGsHFL1rnppGsSeeKd1XGU8V-BNc0B0t44tVgQg0HmfEj5Hinw7i2dLN3K7rwvYMMiuLEaSoeMOfugopS5zyXzZrGB"/>
+<div class="absolute top-2 right-2 bg-white/90 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-bold font-label-bold text-on-surface">4.5</span>
+</div>
+</div>
+<div class="p-4 space-y-1">
+<h4 class="text-body-lg font-bold">Strike &amp; Play Center</h4>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span class="text-label-md font-label-md">3.1 km away • 6th October</span>
+</div>
+<p class="text-label-bold font-label-bold text-primary mt-2">From EGP 85</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Tonight in Cairo -->
+<section class="mt-section-gap px-margin-side">
+<h3 class="text-headline-md font-headline-md mb-4">Tonight in Cairo</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="flex items-center gap-4 bg-surface-container-low p-3 rounded-2xl border border-outline-variant hover:bg-surface-container transition-colors" data-go="s-venue">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="A grand opera house stage with a large orchestra performing under warm amber spotlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3b69jd7QA0BYkhrEnpRBZI3vLc6385R53jjuGeCIpc0iGjAknyDvCDGS62XHzjNy-Fe2VUmUAZeCnkjEct8A7t5neBH6tCDpxiBXZV0TR05_vPSSrpBKkl-Ckix_YFHYNSD3KYmi4tPCw2IszMWmX-FHMudvQRVNaN8uGb4GkU_Y-BuCXXGTzlffZDBUUwkkabPow46hKpMnc1Q7v6Bc2nK5cxKGV_M13WphWY71PJ8fCv4TcJVmj"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-body-lg font-bold">National Symphony</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">Opera House, Cairo</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-label-bold font-label-bold px-3 py-1 rounded-full">Starts 08:30 PM</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-3 rounded-2xl border border-outline-variant hover:bg-surface-container transition-colors" data-go="s-venue">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="A stand-up comedy club stage with a single microphone in front of a brick wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwiXCaMpl-eJ7QuMwubqJQlXIvuubLmY4s0vi0TCbt0AXZiLLXuZX-VxCn-pWHaAZVNwwEl5a13Cuo0yzE9MklycqXQnm87bu0f5Vh_RAG4iKJN98wGGoX7b3ttuitAXqukWTdj1neS3B-8vwpMgklkemS6XXCn-PueU7ZLUUGTNq_VqpEqkRQcKiPEGZcOt88lavCD_lRcplZhEyn2ZgjeEzoEYpkrdFo1Obwlfy2LUcHQLtcWsPC"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-body-lg font-bold">The Laugh Factory Live</h4>
+<p class="text-label-md font-label-md text-on-surface-variant">Comedy Hub, Maadi</p>
+<div class="mt-2 flex items-center gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container text-label-bold font-label-bold px-3 py-1 rounded-full">Starts 09:00 PM</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- All Experiences -->
+<section class="mt-section-gap px-margin-side">
+<h3 class="text-headline-md font-headline-md mb-6">All experiences</h3>
+<div class="space-y-8">
+<div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant group" data-go="s-venue">
+<div class="relative h-56">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A massive, futuristic water park with turquoise pools and giant white spiraling slides." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT0lWcB7Lxb108eyjpSde3V0ZPLzofQqzfkKyjzsnGaF_oObfYNLJcPeCiGzxtBO7bM_45v6prVg6DFDGilL1zQJfSOC82_AFXj3PCt2eT21czqgM2CRW3KhG4M1wX7sNTTRtuFhADQw2Gptzj238p_TkG6bVxLxAl3XSSCfPjYuJnbVwj1InXdY5H_4jf1PZhL0nsGAHOL9jLE2FagXxT8eWdrXEX8MWJrIYu5xN6DqOHJdqY35Ro"/>
+<div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl mb-2">lock_clock</span>
+<span class="text-headline-md font-headline-md">Currently Closed</span>
+<span class="bg-white text-on-surface text-label-bold font-label-bold px-4 py-1.5 rounded-full mt-2">Opens tomorrow at 10:00 AM</span>
+</div>
+<div class="absolute top-4 right-4 w-16 h-16 bg-primary-container rounded-full flex flex-col items-center justify-center text-on-primary-container shadow-lg rotate-12">
+<span class="text-[10px] font-bold leading-none uppercase">Off</span>
+<span class="text-xl font-extrabold">30%</span>
+</div>
+<div class="absolute -bottom-8 left-6 w-16 h-16 bg-white rounded-2xl shadow-md p-1 border-2 border-surface">
+<div class="w-full h-full bg-surface-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">surfing</span>
+</div>
+</div>
+</div>
+<div class="pt-10 pb-6 px-6">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-headline-md font-headline-md">Aqua Splash World</h4>
+<div class="flex items-center gap-2 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md font-bold text-on-surface">4.7 (1200+)</span>
+<span class="text-outline-variant">•</span>
+<span class="text-label-md font-label-md">New Cairo</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-md font-label-md text-on-surface-variant">Starts at</p>
+<p class="text-headline-md font-bold text-primary">EGP 450</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant flex gap-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-label-md font-label-md">All Day</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">family_restroom</span>
+<span class="text-label-md font-label-md">Family Friendly</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant group" data-go="s-venue">
+<div class="relative h-56">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A dramatic interior of a world-class aquarium with a massive underwater tunnel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzrzADHRCnfZKDP4-Oe_UVVHkRuqJngTUUBX37MIgPvunu_R6gWJoeowKRNK9VMfdkcgNeISAy3ABMo-sRVF30ojzn406EBkNz7lA2Rv7tMC4ZrfXKDDYT51HkMMfExGv_1SmrRyfmOOgZd3tm8E0jIvn8yfx7dR6o_4i9JM61JDnz41SRnBJuqguLtzDMladivj8TbGtOA0yWqHvXewEH-H9UgdCf5W8nuNf46LR5ImJDj6XxfRKr"/>
+<div class="absolute top-4 right-4 w-16 h-16 bg-primary-container rounded-full flex flex-col items-center justify-center text-on-primary-container shadow-lg -rotate-12">
+<span class="text-[10px] font-bold leading-none uppercase">Save</span>
+<span class="text-xl font-extrabold">15%</span>
+</div>
+<div class="absolute -bottom-8 left-6 w-16 h-16 bg-white rounded-2xl shadow-md p-1 border-2 border-surface">
+<div class="w-full h-full bg-surface-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">set_meal</span>
+</div>
+</div>
+</div>
+<div class="pt-10 pb-6 px-6">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-headline-md font-headline-md">Oceanic Discovery</h4>
+<div class="flex items-center gap-2 text-on-surface-variant mt-1">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md font-bold text-on-surface">4.9 (850+)</span>
+<span class="text-outline-variant">•</span>
+<span class="text-label-md font-label-md">Mall of Egypt</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-md font-label-md text-on-surface-variant">Starts at</p>
+<p class="text-headline-md font-bold text-primary">EGP 320</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant flex gap-6 text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-label-md font-label-md">9 AM - 11 PM</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">confirmation_number</span>
+<span class="text-label-md font-label-md">Instant Booking</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container-low pb-safe border-t border-outline-variant">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold transition-all" data-go="s-home">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-md font-label-md">Search</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md">Cart</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low" data-go="s-bookings">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-label-md font-label-md">Pay</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low" data-go="s-bookings">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-label-md font-label-md">More</span>
+</button>
+</nav>
+</section>
+
+<!-- ======================== 3 · VENUE DETAIL ======================== -->
+<section class="screen bg-surface text-on-surface font-body-lg" id="s-venue">
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 py-4 pointer-events-none">
+<button class="bg-white/90 backdrop-blur-md rounded-full p-2 pointer-events-auto shadow-sm active:scale-95 transition-transform" data-back>
+<span class="material-symbols-outlined text-on-surface">chevron_left</span>
+</button>
+<div class="flex gap-3 pointer-events-auto">
+<button class="bg-white/90 backdrop-blur-md rounded-full p-2 shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface">share</span>
+</button>
+<button class="bg-white/90 backdrop-blur-md rounded-full p-2 shadow-sm active:scale-95 transition-transform" data-fav>
+<span class="material-symbols-outlined text-on-surface">favorite</span>
+</button>
+</div>
+</nav>
+<main class="pb-32">
+<section class="relative h-[45vh] w-full overflow-hidden">
+<div class="flex h-full transition-transform duration-500 ease-out" id="gallery-track">
+<div class="min-w-full h-full bg-cover bg-center" data-alt="A grand cinematic theater entrance with plush magenta velvet curtains and glowing golden neon signage for VOX Cinemas." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAJJMsNGmZPDEYlAaacaTntMwClsl2bes9ehIIOB0t3hhhrsN1LQJsSg-8XGcv-bUYq8JFdqdzJywFpQh7vdoq2kJMNOn3e4F7sCDfkAEpV8FAI8UqHTxqDmrXTNOBuHINTGfWaGVHdwZYCqvmpOyuZdTOConFTtT3DoumrurMQJJrrqmgikPmG764HumiANyNtSAlmp-PUmYd1dC6PxpCtp9V10zjFO6hzVU-Axy1N3NcpQ6uzpCft')"></div>
+</div>
+<div class="absolute bottom-6 left-0 w-full flex justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+<div class="w-2 h-2 rounded-full bg-white/40"></div>
+<div class="w-2 h-2 rounded-full bg-white/40"></div>
+</div>
+<div class="absolute -bottom-6 left-5 z-10 bg-white p-2 rounded-xl shadow-lg">
+<div class="w-12 h-12 flex items-center justify-center bg-primary-container text-white rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie</span>
+</div>
+</div>
+</section>
+<section class="px-margin-side mt-10">
+<div class="flex justify-between items-start mb-2">
+<h1 class="text-headline-md font-headline-md text-on-surface max-w-[70%] leading-tight">VOX Cinemas Mall of Egypt</h1>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-1 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[16px] fill-icon">star</span>
+<span class="text-label-bold font-label-bold">4.8</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-label-md font-label-md">Cinema</span>
+<span class="flex items-center gap-1 text-secondary text-label-md font-label-md">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                    6th of October
+                </span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-label-md font-label-md flex items-center gap-1">
+<div class="w-1.5 h-1.5 bg-tertiary rounded-full"></div>
+                    Open now
+                </span>
+</div>
+<div class="mb-section-gap">
+<h2 class="text-label-bold font-label-bold text-secondary uppercase tracking-wider mb-2">About</h2>
+<p class="text-body-sm font-body-sm text-secondary leading-relaxed">
+                    Experience movies like never before at the largest cinema complex in Egypt. Featuring state-of-the-art IMAX with Laser, 4DX, and the ultra-luxurious GOLD experience with in-theater dining. Perfect for families, dates, and film enthusiasts.
+                </p>
+</div>
+<div class="mb-section-gap">
+<h2 class="text-label-bold font-label-bold text-secondary uppercase tracking-wider mb-3">Amenities</h2>
+<div class="flex gap-gutter overflow-x-auto no-scrollbar py-1">
+<div class="flex flex-col items-center justify-center min-w-[90px] h-[90px] bg-secondary-container/30 rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary mb-1">local_parking</span>
+<span class="text-label-md font-label-md">Parking</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[90px] h-[90px] bg-secondary-container/30 rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary mb-1">accessible</span>
+<span class="text-label-md font-label-md">Accessible</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[90px] h-[90px] bg-secondary-container/30 rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary mb-1">restaurant</span>
+<span class="text-label-md font-label-md">Food</span>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[90px] h-[90px] bg-secondary-container/30 rounded-xl border border-outline-variant">
+<span class="material-symbols-outlined text-primary mb-1">wifi</span>
+<span class="text-label-md font-label-md">Free Wifi</span>
+</div>
+</div>
+</div>
+</section>
+<section class="px-margin-side mb-section-gap">
+<h2 class="text-headline-md font-headline-md text-on-surface mb-4">Choose an experience</h2>
+<div class="grid grid-cols-1 gap-4">
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-container to-primary p-5 text-white shadow-md active:scale-[0.98] transition-transform" data-go="s-date" data-exp="VOX GOLD" data-price="350">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-[80px]" style="font-variation-settings: 'wght' 200;">stars</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-headline-md font-headline-md">VOX GOLD</h3>
+<span class="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-label-bold font-label-bold">VIP</span>
+</div>
+<p class="text-body-sm font-body-sm opacity-90 mb-4 max-w-[80%]">Luxury reclining leather seats, waiter service, and a gourmet menu curated by Michelin-star chefs.</p>
+<div class="text-headline-md font-headline-md">EGP 350 <span class="text-label-md font-label-md opacity-70">/ ticket</span></div>
+</div>
+</div>
+<div class="rounded-2xl bg-surface-container-low p-5 border border-outline-variant flex justify-between items-center group active:bg-surface-container-high transition-colors" data-go="s-date" data-exp="Standard Experience" data-price="150">
+<div>
+<h3 class="text-body-lg font-headline-md text-on-surface mb-1">Standard Experience</h3>
+<p class="text-body-sm font-body-sm text-secondary">Premium seating &amp; Dolby Atmos sound.</p>
+<div class="mt-2 text-primary font-bold">EGP 150</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+</div>
+<div class="rounded-2xl bg-surface-container-low p-5 border border-outline-variant flex justify-between items-center group active:bg-surface-container-high transition-colors" data-go="s-date" data-exp="Family Bundle" data-price="850">
+<div>
+<h3 class="text-body-lg font-headline-md text-on-surface mb-1">Family Bundle</h3>
+<p class="text-body-sm font-body-sm text-secondary">4 tickets + popcorn &amp; drinks deal.</p>
+<div class="mt-2 text-primary font-bold">EGP 850</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+</div>
+</div>
+</section>
+<section class="px-margin-side">
+<h2 class="text-label-bold font-label-bold text-secondary uppercase tracking-wider mb-3">Location</h2>
+<div class="relative w-full h-48 rounded-2xl overflow-hidden shadow-inner">
+<div class="w-full h-full bg-cover bg-center" data-alt="A stylized minimalist map of the Mall of Egypt area in Cairo." data-location="6th of October City, Egypt" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCb1KWjkMptEQfucOlqwDwgZu7pOjw4NkdWjsFCOfVmN0COgpekCC4bIG9q6FSaC3J7grdZivnFkHFS5ucjgh3mfmgnWXmcuMT6rdLrgpEiTDAY2TOyrfOsyIEettsplpGt8T9MeX28M-qX-Y1y45EvEFxbhG7bsAupKlETH1Gxk4pXdwc1HykpKzgUabymCm2cY4MEfVySsqFO-3BYTCQSxu-noBibBrjCiODMJ7m5pevM2r5zrtRv')"></div>
+<div class="absolute inset-0 bg-black/5 flex items-center justify-center">
+<button class="bg-white px-4 py-2 rounded-full shadow-lg text-label-bold font-label-bold flex items-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">directions</span>
+                        Get Directions
+                    </button>
+</div>
+</div>
+<p class="mt-3 text-body-sm font-body-sm text-secondary">Mall of Egypt, Al Wahat Rd, 6th of October City, Giza Governorate.</p>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 w-full z-[60] bg-white border-t border-outline-variant/30 px-margin-side py-4 safe-bottom flex items-center justify-between shadow-[0_-4px_24px_rgba(0,0,0,0.05)]">
+<div>
+<span class="text-secondary text-label-md font-label-md block">Total from</span>
+<span class="text-headline-md font-headline-md text-on-surface">EGP 150</span>
+</div>
+<button class="bg-primary text-white px-10 py-3.5 rounded-xl text-headline-md font-headline-md shadow-lg shadow-primary/20 active:scale-95 transition-all" data-go="s-date">
+            Book now
+        </button>
+</footer>
+</section>
+
+<!-- ====================== 4 · DATE & GUESTS ====================== -->
+<section class="screen bg-surface text-on-surface flex flex-col" id="s-date">
+<header class="sticky top-0 z-50 bg-surface dark:bg-surface-container-low flex justify-between items-center px-margin-side py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 scale-95 duration-100 transition-transform flex items-center justify-center" data-back>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">chevron_left</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-on-surface">Select Date &amp; Guests</h1>
+</div>
+<button class="hover:opacity-80 scale-95 duration-100 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">search</span>
+</button>
+</header>
+<main class="flex-grow overflow-y-auto pb-40">
+<section class="px-margin-side mt-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-body-lg font-bold">November 2024</h2>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-secondary-container text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="calendar-grid text-center mb-2">
+<div class="text-label-md font-label-md text-secondary py-2">S</div>
+<div class="text-label-md font-label-md text-secondary py-2">M</div>
+<div class="text-label-md font-label-md text-secondary py-2">T</div>
+<div class="text-label-md font-label-md text-secondary py-2">W</div>
+<div class="text-label-md font-label-md text-secondary py-2">T</div>
+<div class="text-label-md font-label-md text-secondary py-2">F</div>
+<div class="text-label-md font-label-md text-secondary py-2">S</div>
+</div>
+<div class="calendar-grid gap-y-1" id="cal-grid">
+<div class="text-label-md font-label-md text-outline-variant py-4">27</div>
+<div class="text-label-md font-label-md text-outline-variant py-4">28</div>
+<div class="text-label-md font-label-md text-outline-variant py-4">29</div>
+<div class="text-label-md font-label-md text-outline-variant py-4">30</div>
+<div class="text-label-md font-label-md text-outline-variant py-4">31</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="1">
+<span class="text-label-md font-label-md text-on-surface">1</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="2">
+<span class="text-label-md font-label-md text-on-surface">2</span>
+<div class="absolute bottom-2 w-1 h-1 bg-primary rounded-full"></div>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="3">
+<span class="text-label-md font-label-md text-on-surface">3</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="4">
+<span class="text-label-md font-label-md text-on-surface">4</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="5">
+<span class="text-label-md font-label-md text-on-surface">5</span>
+<div class="absolute bottom-2 w-1 h-1 bg-primary rounded-full"></div>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="6">
+<span class="text-label-md font-label-md text-on-surface">6</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="7" data-selected="true">
+<div class="absolute inset-0 m-1 bg-primary rounded-lg"></div>
+<span class="relative z-10 text-label-md font-label-md text-white">7</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="8">
+<span class="text-label-md font-label-md text-on-surface">8</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="9">
+<span class="text-label-md font-label-md text-on-surface">9</span>
+</div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="10"><span class="text-label-md font-label-md text-on-surface">10</span></div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="11"><span class="text-label-md font-label-md text-on-surface">11</span></div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="12"><span class="text-label-md font-label-md text-on-surface">12</span></div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="13"><span class="text-label-md font-label-md text-on-surface">13</span></div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="14"><span class="text-label-md font-label-md text-on-surface">14</span></div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="15"><span class="text-label-md font-label-md text-on-surface">15</span></div>
+<div class="relative flex flex-col items-center justify-center py-4" data-day="16"><span class="text-label-md font-label-md text-on-surface">16</span></div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-label-md font-label-md text-secondary">Special discount available</span>
+</div>
+</section>
+<div class="h-px bg-outline-variant mx-margin-side my-8"></div>
+<section class="px-margin-side">
+<h2 class="text-body-lg font-bold mb-4">Select Time Slot</h2>
+<div class="grid grid-cols-2 gap-3" id="slot-grid">
+<button class="py-3 px-4 rounded-xl border border-primary bg-surface-container-low text-primary flex flex-col items-center justify-center transition-all active:scale-95" data-slot="12:30 PM" data-selected="true">
+<span class="text-label-bold font-label-bold">12:30 PM</span>
+<span class="text-[10px] font-medium mt-1">Available</span>
+</button>
+<button class="py-3 px-4 rounded-xl border border-outline-variant bg-surface text-on-surface flex flex-col items-center justify-center transition-all active:scale-95" data-slot="03:00 PM">
+<span class="text-label-bold font-label-bold">03:00 PM</span>
+<span class="text-[10px] font-medium mt-1 text-secondary">Available</span>
+</button>
+<button class="py-3 px-4 rounded-xl border border-outline-variant bg-surface text-on-surface flex flex-col items-center justify-center transition-all active:scale-95" data-slot="06:30 PM">
+<span class="text-label-bold font-label-bold">06:30 PM</span>
+<span class="text-[10px] font-medium mt-1 text-secondary">Available</span>
+</button>
+<button class="py-3 px-4 rounded-xl border border-transparent bg-secondary-container text-secondary opacity-60 flex flex-col items-center justify-center cursor-not-allowed" disabled="">
+<span class="text-label-bold font-label-bold">09:00 PM</span>
+<span class="text-[10px] font-medium mt-1">Sold Out</span>
+</button>
+</div>
+</section>
+<div class="h-px bg-outline-variant mx-margin-side my-8"></div>
+<section class="px-margin-side mb-8">
+<h2 class="text-body-lg font-bold mb-6">Who's coming?</h2>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-lg font-bold text-on-surface">Adults</p>
+<p class="text-body-sm text-secondary">Age 12+ • EGP 150</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-outline text-on-surface-variant hover:bg-surface-container transition-colors" onclick="decrement('adult-count')">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-body-lg font-bold min-w-[20px] text-center" id="adult-count">2</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:opacity-90 transition-opacity" onclick="increment('adult-count')">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-lg font-bold text-on-surface">Children</p>
+<p class="text-body-sm text-secondary">Age 3-11 • EGP 90</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-outline text-on-surface-variant hover:bg-surface-container transition-colors" onclick="decrement('child-count')">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-body-lg font-bold min-w-[20px] text-center" id="child-count">0</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:opacity-90 transition-opacity" onclick="increment('child-count')">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-lg font-bold text-on-surface">Infants</p>
+<p class="text-body-sm text-secondary">Under 3 • Free</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full border border-outline text-on-surface-variant hover:bg-surface-container transition-colors" onclick="decrement('infant-count')">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-body-lg font-bold min-w-[20px] text-center" id="infant-count">0</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:opacity-90 transition-opacity" onclick="increment('infant-count')">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Choose your seats (illustrative only) -->
+<section class="px-margin-side mb-8">
+<h2 class="text-body-lg font-bold mb-4">Your seats</h2>
+<button class="w-full flex items-center gap-4 p-4 rounded-[20px] bg-surface-container-low border border-outline-variant hover:bg-surface-container transition-colors text-left" id="seat-picker" onclick="const t=document.getElementById('seat-soon');t.style.opacity=1;clearTimeout(window._st);window._st=setTimeout(()=>t.style.opacity=0,1600);">
+<span class="w-12 h-12 shrink-0 flex items-center justify-center rounded-full bg-[#F6E4F0]">
+<span class="material-symbols-outlined text-primary text-[26px]">event_seat</span>
+</span>
+<span class="flex-grow">
+<span class="block text-body-lg font-bold text-on-surface">Choose your seats</span>
+<span class="block text-body-sm text-secondary">Pick from the seat map — Row F, seats 7–8</span>
+</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary-container text-white shrink-0">Soon</span>
+</button>
+<p class="text-body-sm text-secondary mt-2 text-center transition-opacity duration-300" id="seat-soon" style="opacity:0">Seat map is illustrative in this prototype.</p>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container-low border-t border-outline-variant p-margin-side pb-safe z-50">
+<div class="flex flex-col gap-4 max-w-2xl mx-auto">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-label-md font-label-md text-secondary" id="guest-summary">2 Adults</p>
+<p class="text-label-md font-label-md text-secondary" id="date-summary">Nov 7, 2024 • 12:30 PM</p>
+</div>
+<div class="text-right">
+<p class="text-label-md font-label-md text-secondary">Total Price</p>
+<p class="text-headline-md font-headline-md text-primary" id="total-price">EGP 300</p>
+</div>
+</div>
+<button class="w-full bg-primary py-4 rounded-xl text-white font-headline-md transition-all active:scale-95 hover:opacity-90 shadow-lg shadow-primary/10" data-go="s-summary">
+                Continue
+            </button>
+</div>
+</footer>
+</section>
+
+<!-- ====================== 5 · BOOKING SUMMARY ====================== -->
+<section class="screen bg-background text-on-surface pb-40" id="s-summary">
+<header class="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-container-low flex justify-between items-center px-margin-side py-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:opacity-80 active:scale-95 duration-100 transition-transform" data-back>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="chevron_left">chevron_left</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-on-surface">Booking Summary</h1>
+<div class="w-10"></div>
+</header>
+<main class="mt-20 px-margin-side flex flex-col gap-section-gap">
+<section class="flex flex-col gap-4">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A cinematic interior shot of a high-end VOX Cinema theater with plush magenta velvet seating." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS3CS-tRAcc-LMwEE1r4BsVlmzUA7V9fjcOZbOubSWfqQQDC6uHTLl1oyz5AU9g2woTMMzgO-fIkzsBtSzK_cRsSA0waUfuE09JWqqa-O6BIYrO7iOpO3HStntJxF6MgP_2iAuDASa_OLeuyK6Brxnv3HJeaLauzwHwMDETqQRsEaQKqD8FynfLqGrCh5jp9H1fxkcJVFYkkhoCqZI_59M6fHnaFzfZrYAMdiKbBytRMCFsabg-Jrk')"></div>
+<div class="absolute bottom-4 left-4 right-4 p-4 glass-card rounded-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="A minimalist vector logo of VOX Cinemas rendered in deep magenta." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyvg2CXGZ_jlDeQOYwnnfkxLSblhVVHD6pqsBNtSSsFRCyVkHWrEFhluaZC4jk5s3Ch0n0OC9KsRUzAyCCHZMvfGyyMWmANcaDbeQv5o0kf8_GZBFFfvWm5KrVe9AH-cdTMFXxWPb8Ac1PYrYQHQI9yUPcDy1Nz2t6oPlSoy-PwAKUeaOallPOrX1fcEv8d9wLNq9g5sax_jFGD3qbWe8k44afpIyS3GvTxikAEQC3EuYCT_aEVJNG">
+</div>
+<div>
+<h2 class="font-headline-md text-label-bold" id="sum-exp">Standard Experience - VOX Cinemas</h2>
+<p class="text-body-sm text-secondary">Mall of Egypt, Cairo</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col gap-1">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Date</span>
+<span class="text-body-lg font-headline-md" id="sum-date">Fri, 24 May 2024</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col gap-1">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Time</span>
+<span class="text-body-lg font-headline-md" id="sum-time">19:30 PM</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col gap-1 col-span-2">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Guests</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="group">group</span>
+<span class="text-body-lg font-headline-md" id="sum-guests">2 Adults</span>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-2">
+<h3 class="text-label-bold text-secondary px-1">Promo Code</h3>
+<div class="flex gap-2">
+<input class="flex-1 bg-[#F2F2F2] border-none rounded-xl px-4 py-3 text-body-lg focus:ring-2 focus:ring-primary placeholder:text-secondary" placeholder="Enter code here" type="text">
+<button class="bg-primary text-on-primary font-label-bold px-6 py-3 rounded-xl hover:opacity-90 active:scale-95 transition-all" data-promo>Apply</button>
+</div>
+</section>
+<section class="flex flex-col gap-4 bg-surface-container-lowest p-5 rounded-2xl border border-[#F2F2F2]">
+<h3 class="text-headline-md font-headline-md mb-2">Price Details</h3>
+<div class="flex justify-between items-center">
+<span class="text-body-lg text-secondary">Subtotal</span>
+<span class="text-body-lg font-bold" id="sum-subtotal">EGP 380.00</span>
+</div>
+<div class="flex justify-between items-center text-primary">
+<span class="text-body-lg">Breakfast offer</span>
+<span class="text-body-lg font-bold" id="sum-offer">-EGP 60.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-lg text-secondary">Service Fee</span>
+<span class="text-body-lg font-bold">EGP 20.00</span>
+</div>
+<div class="h-[1px] bg-[#F2F2F2] w-full my-2"></div>
+<div class="flex justify-between items-center">
+<span class="text-headline-md">Total Price</span>
+<span class="text-headline-md text-primary" id="sum-total">EGP 340.00</span>
+</div>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant p-margin-side safe-bottom z-50">
+<div class="max-w-md mx-auto flex flex-col gap-4">
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-label-md text-secondary">Payable Amount</span>
+<span class="text-headline-lg-mobile text-on-surface font-headline-lg-mobile" id="sum-payable">EGP 340.00</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-3 py-1 rounded-full text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span class="text-label-bold font-label-bold" id="hold-timer">09:59</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary text-body-lg font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-primary/20" onclick="handlePayment()">
+                Proceed to Payment
+                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</footer>
+<div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300" id="loading-overlay">
+<div class="bg-surface w-[80%] max-w-sm rounded-3xl p-8 flex flex-col items-center text-center gap-6 transform scale-90 transition-transform duration-300" id="modal-content">
+<div class="w-20 h-20 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container text-4xl" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<h4 class="text-headline-md font-headline-md mb-2">Redirecting to Secure Payment</h4>
+<p class="text-body-sm text-secondary">Please do not refresh the page or go back.</p>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-0 transition-all duration-[2000ms] ease-out" id="progress-bar"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ========================== 6 · CHECKOUT ========================== -->
+<section class="screen bg-surface text-on-surface" id="s-checkout">
+<header class="bg-surface dark:bg-surface-container-low sticky top-0 z-40">
+<div class="flex justify-between items-center px-margin-side py-4 w-full">
+<button class="flex items-center text-primary dark:text-primary-fixed hover:opacity-80 transition-transform active:scale-95 duration-100" data-back>
+<span class="material-symbols-outlined text-headline-md">chevron_left</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-on-surface dark:text-on-surface-variant">Checkout</h1>
+<div class="w-8"></div>
+</div>
+</header>
+<main class="flex flex-col pb-48">
+<section class="px-margin-side py-4">
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/30">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-body-lg text-on-surface p-0 min-h-[60px] resize-none" placeholder="Add a note for the venue"></textarea>
+</div>
+</section>
+<div class="h-2 bg-surface-container-low w-full"></div>
+<section class="px-margin-side py-6">
+<h2 class="text-headline-md font-headline-md mb-4 text-on-surface">Payment</h2>
+<div class="space-y-3" id="pay-list">
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<span class="font-label-bold text-body-lg text-on-surface">Pay at venue</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center"></div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">credit_card</span>
+<span class="font-label-bold text-body-lg text-on-surface">Credit/Debit card</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center"></div>
+</div>
+<div class="flex items-center justify-between p-4 border-2 border-primary rounded-xl bg-surface-container-lowest transition-colors relative overflow-hidden shadow-sm" data-selected="true">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">branding_watermark</span>
+<span class="font-label-bold text-body-lg text-on-surface">Apple Pay</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 border border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">account_balance</span>
+<span class="font-label-bold text-body-lg text-on-surface">Bank installments</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center"></div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div>
+<p class="font-label-bold text-body-lg text-on-surface">Use my balance</p>
+<p class="text-label-md text-secondary">EGP 0</p>
+</div>
+<div class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-secondary-container transition-colors duration-200 focus:outline-none" id="balance-toggle" onclick="this.classList.toggle('bg-primary'); this.querySelector('span').classList.toggle('translate-x-5')">
+<span class="translate-x-1 pointer-events-none inline-block h-4 w-4 transform rounded-full bg-surface shadow ring-0 transition duration-200 ease-in-out"></span>
+</div>
+</div>
+</section>
+<div class="h-2 bg-surface-container-low w-full"></div>
+<section class="px-margin-side py-4">
+<div class="flex items-center gap-1">
+<h3 class="text-headline-md font-headline-md text-on-surface">Say thanks with a tip</h3>
+<span class="material-symbols-outlined text-primary text-[18px]">info</span>
+</div>
+<div class="flex gap-3 overflow-x-auto mt-4 pb-2 no-scrollbar" id="tip-row">
+<div class="flex-shrink-0 w-[80px] h-[48px] rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant text-label-bold" data-tip="0" data-selected="true">None</div>
+<div class="flex-shrink-0 w-[80px] h-[48px] rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant text-label-bold" data-tip="10">EGP 10</div>
+<div class="flex-shrink-0 w-[80px] h-[48px] rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant text-label-bold" data-tip="20">EGP 20</div>
+<div class="flex-shrink-0 w-[80px] h-[48px] rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant text-label-bold" data-tip="30">EGP 30</div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/30 pb-safe z-50">
+<div class="px-margin-side pt-4 pb-6 space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<span class="text-headline-md font-headline-md text-on-surface">Grand total</span>
+<span class="text-headline-md font-headline-md text-on-surface" id="co-total">EGP 600</span>
+</div>
+<div class="flex justify-end items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="text-label-md text-secondary">You'll earn <span id="co-points">1140</span> points</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-headline-md py-4 rounded-xl shadow-lg shadow-primary/20 active:scale-95 transition-all duration-100 uppercase tracking-wide" data-go="s-ticket">
+                Confirm booking
+            </button>
+</div>
+</div>
+</section>
+
+<!-- =========================== 7 · TICKET =========================== -->
+<section class="screen bg-background text-on-background pb-24" id="s-ticket">
+<header class="sticky top-0 z-50 bg-surface dark:bg-surface-container-low flex justify-between items-center px-margin-side py-4 w-full">
+<div class="flex items-center gap-2">
+<button class="hover:opacity-80 scale-95 duration-100 transition-transform text-primary dark:text-primary-fixed" data-back>
+<span class="material-symbols-outlined text-[24px]">chevron_left</span>
+</button>
+<h1 class="text-headline-md font-headline-md font-bold text-on-surface dark:text-on-surface-variant">Ticket</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">search</span>
+</div>
+</header>
+<main class="px-margin-side pt-8 max-w-md mx-auto">
+<div class="flex flex-col items-center mb-section-gap text-center">
+<div class="w-24 h-24 bg-primary-container rounded-full flex items-center justify-center mb-6 success-animation shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-[56px]" style='font-variation-settings: "wght" 700;'>check</span>
+</div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface mb-2">Booking Confirmed!</h2>
+<p class="text-body-sm font-body-sm text-secondary">Your tickets are ready. Get excited for the show!</p>
+</div>
+<div class="relative bg-white rounded-xl shadow-md overflow-hidden mb-8 border border-outline-variant/30">
+<div class="h-32 w-full relative">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" id="tk-img" data-alt="A high-energy, vibrant cinematic shot of a modern concert stage with purple and magenta spotlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuaO8mRnCepeSxo5-CMCcpBZi9DHuEVMAfa5jmtwhPrlACZOcOpfwt8mnCrNZ0NSB44lur6fVGCitZIqUXvQatNyng6tyYG-M72TZRDZ8W17ZfMF3pNatvqPKRL-ZXSR_EqR7gSkkdOcRGweCuT_z2pJvV3steUZaH3ZmyTT2fgCLNmXEGc4Y-UUkaeMgbRtQM13PbW9zDz3OQ6NtFVD--UgayCScfeUfXuDcZMEC0MM2fPJ5XGYhm"/>
+<div class="absolute bottom-4 left-4 z-20">
+<span class="bg-primary text-white text-label-bold font-label-bold px-3 py-1 rounded-full uppercase tracking-wider" id="tk-badge">Premium Access</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface" id="tk-title">The Grand Symphony</h3>
+<p class="text-body-sm font-body-sm text-secondary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                            <span id="tk-venue">Royal Majestic Arena, Hall 4</span>
+                        </p>
+</div>
+<div class="bg-surface-container-low p-2 rounded-lg border border-outline-variant/20">
+<p class="text-[10px] font-label-bold text-secondary uppercase text-center leading-none mb-1">Guests</p>
+<p class="text-headline-md font-headline-md text-primary text-center leading-none" id="tk-guests">02</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-6 gap-x-4 mb-8">
+<div>
+<p class="text-label-md font-label-md text-secondary uppercase tracking-tight mb-1">Date</p>
+<p class="text-body-lg font-body-lg text-on-surface font-semibold" id="tk-date">Friday, Oct 24</p>
+</div>
+<div>
+<p class="text-label-md font-label-md text-secondary uppercase tracking-tight mb-1">Time</p>
+<p class="text-body-lg font-body-lg text-on-surface font-semibold" id="tk-time">08:30 PM</p>
+</div>
+<div>
+<p class="text-label-md font-label-md text-secondary uppercase tracking-tight mb-1">Ticket Type</p>
+<p class="text-body-lg font-body-lg text-on-surface font-semibold" id="tk-type">VIP Lounge</p>
+</div>
+<div>
+<p class="text-label-md font-label-md text-secondary uppercase tracking-tight mb-1">Reference</p>
+<p class="text-body-lg font-body-lg text-on-surface font-semibold">#ENT-99201</p>
+</div>
+</div>
+<div class="relative h-4 flex items-center justify-between -mx-6 mb-6">
+<div class="w-6 h-6 bg-background rounded-full -ml-3 border-r border-outline-variant/30"></div>
+<div class="flex-1 border-t-2 border-dashed border-outline-variant/40 mx-2"></div>
+<div class="w-6 h-6 bg-background rounded-full -mr-3 border-l border-outline-variant/30"></div>
+</div>
+<div class="flex flex-col items-center">
+<div class="bg-white border-2 border-outline-variant rounded-xl p-4 shadow-md w-full max-w-[280px]">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-1">
+<span class="text-label-bold font-label-bold text-on-surface uppercase tracking-tight">YOUR TICKET</span>
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]">calendar_today</span>
+</div>
+<div class="aspect-square w-full overflow-hidden rounded-lg bg-white">
+<img loading="lazy" decoding="async" alt="QR Code" class="w-full h-full object-cover block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWLUFvratQthhauOCfP_sN6zHrAhl_HtbPxIds41Dh6QLMPQhtuYfVOZYjjwoMbk4JQdIThSEa8erszZVskcfV1UfEV935X7satbSYSxSpwnagk4UccFpXw6xjajkSRO7lKnpF11Bu9l7Rl_cCTzV7XhhSEJzA5hBoO_65-wPKhuEWryD64iDkgMHZC1mgfhAyT3OOZF2J5P7Hoy_JBK-p05vUOY2GGzdw5dFbFNow8-CaLMZQKaiz"/>
+</div>
+<p class="text-label-bold font-label-bold text-secondary uppercase tracking-wider text-center mt-4">SCAN AT ENTRANCE</p></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 mb-8">
+<button class="w-full flex items-center justify-center gap-3 bg-[#F2F2F2] hover:bg-[#E8E8E8] text-on-surface font-semibold py-4 px-6 rounded-xl transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-body-lg font-body-lg">Add to Apple Wallet</span>
+</button>
+<button class="w-full flex items-center justify-center gap-3 bg-[#F2F2F2] hover:bg-[#E8E8E8] text-on-surface font-semibold py-4 px-6 rounded-xl transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-body-lg font-body-lg">Add to Calendar</span>
+</button>
+</div>
+<div class="text-center">
+<a class="text-primary font-bold text-body-lg font-body-lg hover:underline transition-all" href="#" data-go="s-bookings">
+                View in My Bookings
+            </a>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface dark:bg-surface-container-low pb-safe border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low" href="#" data-go="s-home">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-md font-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low" href="#" data-go="s-ent">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-md font-label-md">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold transition-all" href="#" data-go="s-bookings">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>account_balance_wallet</span>
+<span class="text-label-md font-label-md">Pay</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-low" href="#" data-go="s-bookings">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-label-md font-label-md">More</span>
+</a>
+</nav>
+</section>
+
+<!-- ======================== 8 · MY BOOKINGS ======================== -->
+<section class="screen bg-surface text-on-surface pb-24" id="s-bookings">
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center px-margin-side py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary cursor-pointer" data-back>chevron_left</span>
+<h1 class="text-headline-md font-headline-md text-on-surface">My Bookings</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">search</span>
+</div>
+</header>
+<div class="px-margin-side mt-2 mb-section-gap">
+<div class="flex border-b border-outline-variant" id="bk-tabs">
+<button class="flex-1 py-3 text-label-bold font-label-bold text-primary border-b-2 border-primary transition-all duration-200">
+                Upcoming
+            </button>
+<button class="flex-1 py-3 text-label-md font-label-md text-secondary hover:text-on-surface-variant transition-all duration-200">
+                Past
+            </button>
+</div>
+</div>
+<main class="px-margin-side space-y-6">
+<article class="bg-white rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-[#F2F2F2] transition-transform active:scale-[0.98]"
+ data-title="The Grand Symphony" data-venue="Royal Majestic Arena, Hall 4" data-date="Oct 24, 2024"
+ data-time="08:30 PM" data-guests="02" data-type="VIP Lounge" data-badge="Premium Access" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAuaO8mRnCepeSxo5-CMCcpBZi9DHuEVMAfa5jmtwhPrlACZOcOpfwt8mnCrNZ0NSB44lur6fVGCitZIqUXvQatNyng6tyYG-M72TZRDZ8W17ZfMF3pNatvqPKRL-ZXSR_EqR7gSkkdOcRGweCuT_z2pJvV3steUZaH3ZmyTT2fgCLNmXEGc4Y-UUkaeMgbRtQM13PbW9zDz3OQ6NtFVD--UgayCScfeUfXuDcZMEC0MM2fPJ5XGYhm">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A high-energy cinematic shot of a modern concert stage with purple and magenta spotlights beaming through a light haze." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAuaO8mRnCepeSxo5-CMCcpBZi9DHuEVMAfa5jmtwhPrlACZOcOpfwt8mnCrNZ0NSB44lur6fVGCitZIqUXvQatNyng6tyYG-M72TZRDZ8W17ZfMF3pNatvqPKRL-ZXSR_EqR7gSkkdOcRGweCuT_z2pJvV3steUZaH3ZmyTT2fgCLNmXEGc4Y-UUkaeMgbRtQM13PbW9zDz3OQ6NtFVD--UgayCScfeUfXuDcZMEC0MM2fPJ5XGYhm')"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md rounded-lg p-2 text-center min-w-[50px]">
+<span class="block text-label-bold font-label-bold text-primary uppercase">Oct</span>
+<span class="block text-headline-md font-headline-md text-on-surface">24</span>
+</div>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-label-bold font-label-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] fill-icon">check_circle</span>
+                    Confirmed
+                </div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface" id="tk-title">The Grand Symphony</h3>
+<p class="text-body-sm font-body-sm text-secondary">Royal Majestic Arena • Hall 4</p>
+</div>
+<div class="text-right">
+<p class="text-label-bold font-label-bold text-on-surface">20:30</p>
+<p class="text-body-sm font-body-sm text-secondary">2 Tickets</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-[#F2F2F2] flex items-center justify-between">
+<span class="text-label-md font-label-md text-primary bg-primary-fixed px-2 py-1 rounded">VIP Lounge</span>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-label-bold font-label-bold hover:opacity-90 transition-opacity active:scale-95" data-viewticket>
+                        View ticket
+                    </button>
+</div>
+</div>
+</article>
+<article class="bg-white rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-[#F2F2F2] transition-transform active:scale-[0.98]" data-title="Dune: Part Two" data-venue="Grand Cinema, Hall 4" data-date="Oct 24, 2024" data-time="07:30 PM" data-guests="02" data-type="IMAX" data-badge="Standard Access" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBqoOe-ci25ztsXrIVFW_rucGm_CSdwir-UGkl5MBW6H0KZvV50JiaSL_Bt6X3HtTr9oDws2kheBERwq0VIkdLBgoxE3ImTuOWcMBhmdawBUSYjqZjI2WXoKmcirLm3NGHedhL3_orFFrsedghV3lRL2NS8NNNlxN9LpMqoj6lAKL24KkOzHFCDKXFjqKDleKk--eYdo5kfYFQoW6eSe2LlkeD5kPytb68jlHObxFm1PimmxAHpnQZt">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A vibrant, wide-angle shot of a modern IMAX cinema hall with plush red seats and a massive glowing screen." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqoOe-ci25ztsXrIVFW_rucGm_CSdwir-UGkl5MBW6H0KZvV50JiaSL_Bt6X3HtTr9oDws2kheBERwq0VIkdLBgoxE3ImTuOWcMBhmdawBUSYjqZjI2WXoKmcirLm3NGHedhL3_orFFrsedghV3lRL2NS8NNNlxN9LpMqoj6lAKL24KkOzHFCDKXFjqKDleKk--eYdo5kfYFQoW6eSe2LlkeD5kPytb68jlHObxFm1PimmxAHpnQZt')"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md rounded-lg p-2 text-center min-w-[50px]">
+<span class="block text-label-bold font-label-bold text-primary uppercase">Oct</span>
+<span class="block text-headline-md font-headline-md text-on-surface">24</span>
+</div>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-label-bold font-label-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] fill-icon">check_circle</span>
+                    Confirmed
+                </div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Dune: Part Two</h3>
+<p class="text-body-sm font-body-sm text-secondary">Grand Cinema • Hall 4</p>
+</div>
+<div class="text-right">
+<p class="text-label-bold font-label-bold text-on-surface">19:30</p>
+<p class="text-body-sm font-body-sm text-secondary">2 Tickets</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-[#F2F2F2] flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-container flex items-center justify-center text-[10px] font-bold">JD</div>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed flex items-center justify-center text-[10px] font-bold">AS</div>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-label-bold font-label-bold hover:opacity-90 transition-opacity active:scale-95" data-viewticket>
+                        View ticket
+                    </button>
+</div>
+</div>
+</article>
+<article class="bg-white rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-[#F2F2F2] transition-transform active:scale-[0.98]" data-title="Midnight Jazz Series" data-venue="The Blue Note Lounge" data-date="Nov 02, 2024" data-time="10:00 PM" data-guests="04" data-type="Table 12" data-badge="Table Reserved" data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuDtdmHTZV4QIxtgbB8_U2kcGcgganqjFcpiECRd2UE4ozA-9rT5lkDW0fgZWTvqlous6y8hCAGK9yJHILdKCHCEEgcXvQcjNYT2CEh-mfBDtzF2zdJVwL27zFGRBNAIMmY6_f8eGSKzCI3uY929Hs1nnSbB6PoVwGS9cBOIDoVMpYJrm0El3Xu_BPFM6cL4d_NYdpcbefXQyA0tPX2v4coXwbT8IpmFeJPzv-_FE77dwgIT2IE6KdvG">
+<div class="relative h-48 w-full">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A sophisticated live jazz lounge featuring a warm, amber-lit stage with a grand piano." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtdmHTZV4QIxtgbB8_U2kcGcgganqjFcpiECRd2UE4ozA-9rT5lkDW0fgZWTvqlous6y8hCAGK9yJHILdKCHCEEgcXvQcjNYT2CEh-mfBDtzF2zdJVwL27zFGRBNAIMmY6_f8eGSKzCI3uY929Hs1nnSbB6PoVwGS9cBOIDoVMpYJrm0El3Xu_BPFM6cL4d_NYdpcbefXQyA0tPX2v4coXwbT8IpmFeJPzv-_FE77dwgIT2IE6KdvG')"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md rounded-lg p-2 text-center min-w-[50px]">
+<span class="block text-label-bold font-label-bold text-primary uppercase">Nov</span>
+<span class="block text-headline-md font-headline-md text-on-surface">02</span>
+</div>
+<div class="absolute top-4 right-4 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-label-bold font-label-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] fill-icon">check_circle</span>
+                    Confirmed
+                </div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface">Midnight Jazz Series</h3>
+<p class="text-body-sm font-body-sm text-secondary">The Blue Note Lounge</p>
+</div>
+<div class="text-right">
+<p class="text-label-bold font-label-bold text-on-surface">22:00</p>
+<p class="text-body-sm font-body-sm text-secondary">4 Tickets</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-[#F2F2F2] flex items-center justify-between">
+<span class="text-label-md font-label-md text-primary bg-primary-fixed px-2 py-1 rounded">Table 12 Reserved</span>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-label-bold font-label-bold hover:opacity-90 transition-opacity active:scale-95" data-viewticket>
+                        View ticket
+                    </button>
+</div>
+</div>
+</article>
+<article class="bg-white rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-[#F2F2F2] opacity-80" data-past="1">
+<div class="relative h-48 w-full grayscale">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A large outdoor music festival stage during daytime with a crowd in the foreground." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkIYnSabd6Kr6oxmzGuDGgIVYDPmGpv_sizHNzd4_8Abq1BftTv7eMu8Gh1wuT_xwLOu3umIR2H9dj6ztKJeABElkO9WPvyeahtstg-Zm2YHGIeJVJ-9NB468QFfElSTIjPkjJxHwc5TcPemwvH31BW16b8IsEa_0fZGMza9t-c1kIyEEQM-gdvgPqmLlzS-TyQQsyGOLsjRrHI315NOlPi_CIuvI56ZzsYjBh_vArDvUdBeKWlpuq')"></div>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md rounded-lg p-2 text-center min-w-[50px]">
+<span class="block text-label-bold font-label-bold text-secondary uppercase">Nov</span>
+<span class="block text-headline-md font-headline-md text-secondary">15</span>
+</div>
+<div class="absolute top-4 right-4 bg-error-container text-on-error-container px-3 py-1 rounded-full text-label-bold font-label-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                    Cancelled
+                </div>
+</div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-secondary-container">Echoes Festival</h3>
+<p class="text-body-sm font-body-sm text-secondary">City Park Arena</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-[#F2F2F2] flex items-center justify-between">
+<p class="text-body-sm font-body-sm text-error">Refunded to Original Payment</p>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2.5 rounded-lg text-label-bold font-label-bold opacity-50 cursor-not-allowed">
+                        Cancelled
+                    </button>
+</div>
+</div>
+</article>
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-surface border-t border-outline-variant pb-safe">
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" href="#" data-go="s-home">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-md font-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" href="#" data-go="s-ent">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-md font-label-md mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-label-md font-label-md mt-1">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold transition-all" href="#" data-go="s-bookings">
+<span class="material-symbols-outlined fill-icon">account_balance_wallet</span>
+<span class="text-label-md font-label-md mt-1">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-surface-container-low transition-all" href="#">
+<span class="material-symbols-outlined">menu</span>
+<span class="text-label-md font-label-md mt-1">More</span>
+</a>
+</nav>
+</section>
+
+</div><!-- /phone -->
+
+<div class="flow" id="flow"></div>
+<div class="hint">Every button is wired: tap Entertainment on Home to enter the vertical, pick a venue, choose an experience,
+set the date, time and guests, then run the booking through checkout to the ticket. Back arrows use a real history stack.</div>
+
+<script>
+/* ============================================================
+   Prototype runtime — navigation + the interactions each screen
+   was designed to have. No screen markup or styling was altered.
+   ============================================================ */
+const SCREENS = [
+  ['s-home','1 · Home'], ['s-ent','2 · Entertainment'], ['s-venue','3 · Venue'],
+  ['s-date','4 · Date & guests'], ['s-summary','5 · Summary'], ['s-checkout','6 · Checkout'],
+  ['s-ticket','7 · Ticket'], ['s-bookings','8 · My bookings']
+];
+const HIST = [];
+const flow = document.getElementById('flow');
+SCREENS.forEach(([id,label]) => {
+  const b = document.createElement('button');
+  b.textContent = label; b.dataset.id = id;
+  b.onclick = () => go(id);
+  flow.appendChild(b);
+});
+
+function go(id, isBack){
+  const cur = document.querySelector('.screen.active');
+  if (!isBack && cur && cur.id !== id) HIST.push(cur.id);
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  el.classList.add('active');
+  el.scrollTop = 0;
+  flow.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.id === id));
+  if (id === 's-summary' || id === 's-checkout' || id === 's-ticket') paint();
+}
+function back(){ go(HIST.pop() || 's-home', true); }
+flow.querySelector('button').classList.add('on');
+
+/* one delegated listener drives every data-go / data-back element */
+document.addEventListener('click', e => {
+  const back$ = e.target.closest('[data-back]');
+  if (back$) { e.preventDefault(); back(); return; }
+  const view$ = e.target.closest('[data-viewticket]');
+  if (view$) {
+    e.preventDefault();
+    STATE.ticket = { ...view$.closest('article').dataset };
+    go('s-ticket');
+    return;
+  }
+  const go$ = e.target.closest('[data-go]');
+  if (go$) {
+    e.preventDefault();
+    if (go$.dataset.exp) { STATE.exp = go$.dataset.exp; STATE.price = +go$.dataset.price; }
+    if (go$.dataset.go === 's-ticket') STATE.ticket = null;   // freshly booked = live values
+    go(go$.dataset.go);
+  }
+});
+
+/* ---------------- booking state ---------------- */
+const STATE = { exp:'Standard Experience', price:150, day:7, time:'12:30 PM', tip:0, ticket:null };
+const PRICES = { adult:150, child:90, infant:0 };
+
+/* ---------------- guest steppers (used by inline onclick) ---------------- */
+function increment(id){ const el = document.getElementById(id); el.innerText = (+el.innerText) + 1; updateSummary(); }
+function decrement(id){ const el = document.getElementById(id); const v = +el.innerText; if (v > 0) el.innerText = v - 1; updateSummary(); }
+
+function counts(){
+  return {
+    a: +document.getElementById('adult-count').innerText,
+    c: +document.getElementById('child-count').innerText,
+    i: +document.getElementById('infant-count').innerText
+  };
+}
+function guestText(){
+  const { a, c, i } = counts(); const p = [];
+  if (a) p.push(a + (a === 1 ? ' Adult' : ' Adults'));
+  if (c) p.push(c + (c === 1 ? ' Child' : ' Children'));
+  if (i) p.push(i + (i === 1 ? ' Infant' : ' Infants'));
+  return p.length ? p.join(', ') : 'No guests selected';
+}
+function subtotal(){
+  const { a, c } = counts();
+  return a * STATE.price + c * PRICES.child;
+}
+function updateSummary(){
+  const total = subtotal();
+  document.getElementById('total-price').innerText = 'EGP ' + total;
+  document.getElementById('guest-summary').innerText = guestText();
+  document.getElementById('date-summary').innerText = 'Nov ' + STATE.day + ', 2024 • ' + STATE.time;
+}
+
+/* ---------------- calendar ---------------- */
+const cal = document.getElementById('cal-grid');
+cal.querySelectorAll('[data-day]').forEach(cell => {
+  if (cell.querySelector('.bg-primary.rounded-full')) cell.dataset.dot = '1';
+  cell.style.cursor = 'pointer';
+  cell.addEventListener('click', () => {
+    cal.querySelectorAll('[data-day]').forEach(c => {
+      c.removeAttribute('data-selected');
+      c.innerHTML = '<span class="text-label-md font-label-md text-on-surface">' + c.dataset.day + '</span>' +
+        (c.dataset.dot ? '<div class="absolute bottom-2 w-1 h-1 bg-primary rounded-full"></div>' : '');
+    });
+    cell.dataset.selected = 'true';
+    cell.innerHTML = '<div class="absolute inset-0 m-1 bg-primary rounded-lg"></div>' +
+      '<span class="relative z-10 text-label-md font-label-md text-white">' + cell.dataset.day + '</span>';
+    STATE.day = +cell.dataset.day;
+    updateSummary();
+  });
+});
+
+/* ---------------- time slots ---------------- */
+document.querySelectorAll('#slot-grid [data-slot]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#slot-grid [data-slot]').forEach(b => {
+      b.removeAttribute('data-selected');
+      b.classList.remove('border-primary','bg-surface-container-low','text-primary');
+      b.classList.add('border-outline-variant','bg-surface','text-on-surface');
+      b.querySelector('span:last-child').classList.add('text-secondary');
+    });
+    btn.dataset.selected = 'true';
+    btn.classList.add('border-primary','bg-surface-container-low','text-primary');
+    btn.classList.remove('border-outline-variant','bg-surface','text-on-surface');
+    btn.querySelector('span:last-child').classList.remove('text-secondary');
+    STATE.time = btn.dataset.slot;
+    updateSummary();
+  });
+});
+
+/* ---------------- entertainment category chips ---------------- */
+const rail = document.querySelector('[data-chiprail]');
+if (rail) rail.querySelectorAll(':scope > div').forEach(chip => {
+  chip.style.cursor = 'pointer';
+  chip.addEventListener('click', () => {
+    rail.querySelectorAll(':scope > div').forEach(c => c.classList.remove('ring-2','ring-primary'));
+    chip.classList.add('ring-2','ring-primary');
+  });
+});
+
+/* ---------------- favourite toggle on the venue page ---------------- */
+document.querySelectorAll('[data-fav]').forEach(b => b.addEventListener('click', () => {
+  const i = b.querySelector('.material-symbols-outlined');
+  const on = i.style.fontVariationSettings.includes('FILL" 1') || i.dataset.on === '1';
+  i.dataset.on = on ? '0' : '1';
+  i.style.fontVariationSettings = on ? "'FILL' 0" : "'FILL' 1";
+  i.classList.toggle('text-primary', !on);
+  i.classList.toggle('text-on-surface', on);
+}));
+
+/* ---------------- payment methods ---------------- */
+const payList = document.getElementById('pay-list');
+payList.querySelectorAll(':scope > div').forEach(opt => {
+  opt.addEventListener('click', () => {
+    payList.querySelectorAll(':scope > div').forEach(o => {
+      o.removeAttribute('data-selected');
+      o.classList.remove('border-2','border-primary','shadow-sm');
+      o.classList.add('border','border-outline-variant');
+      const icon = o.querySelector('.material-symbols-outlined');
+      icon.classList.remove('text-primary'); icon.classList.add('text-secondary');
+      icon.style.fontVariationSettings = "'FILL' 0";
+      const radio = o.querySelector('.w-6.h-6');
+      radio.classList.remove('border-primary'); radio.classList.add('border-outline-variant');
+      radio.innerHTML = '';
+    });
+    opt.dataset.selected = 'true';
+    opt.classList.add('border-2','border-primary','shadow-sm');
+    opt.classList.remove('border','border-outline-variant');
+    const icon = opt.querySelector('.material-symbols-outlined');
+    icon.classList.add('text-primary'); icon.classList.remove('text-secondary');
+    icon.style.fontVariationSettings = "'FILL' 1";
+    const radio = opt.querySelector('.w-6.h-6');
+    radio.classList.add('border-primary'); radio.classList.remove('border-outline-variant');
+    radio.innerHTML = '<div class="w-3 h-3 rounded-full bg-primary"></div>';
+  });
+});
+
+/* ---------------- tips ---------------- */
+document.querySelectorAll('#tip-row [data-tip]').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('#tip-row [data-tip]').forEach(x => {
+      x.removeAttribute('data-selected');
+      x.classList.remove('border-primary','text-primary','bg-primary-fixed');
+      x.classList.add('border-outline-variant','bg-surface-container-low');
+    });
+    t.dataset.selected = 'true';
+    t.classList.add('border-primary','text-primary','bg-primary-fixed');
+    t.classList.remove('border-outline-variant','bg-surface-container-low');
+    STATE.tip = +t.dataset.tip;
+    paint();
+  });
+});
+
+/* ---------------- my bookings tabs ---------------- */
+const tabs = document.querySelectorAll('#bk-tabs button');
+tabs.forEach((tab, idx) => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => {
+      t.classList.remove('text-primary','border-primary','border-b-2','font-label-bold','text-label-bold');
+      t.classList.add('text-secondary','font-label-md','text-label-md');
+    });
+    tab.classList.add('text-primary','border-primary','border-b-2','font-label-bold','text-label-bold');
+    tab.classList.remove('text-secondary','font-label-md','text-label-md');
+    document.querySelectorAll('#s-bookings main article').forEach(c => {
+      const past = c.dataset.past === '1';
+      c.style.display = (idx === 0 ? !past : past) ? '' : 'none';
+    });
+  });
+});
+
+/* ---------------- summary → payment modal ---------------- */
+function handlePayment(){
+  const overlay = document.getElementById('loading-overlay');
+  const modal = document.getElementById('modal-content');
+  const progress = document.getElementById('progress-bar');
+  overlay.classList.remove('hidden');
+  setTimeout(() => {
+    overlay.classList.add('opacity-100');
+    modal.classList.remove('scale-90'); modal.classList.add('scale-100');
+    progress.style.width = '100%';
+  }, 10);
+  setTimeout(() => {
+    overlay.classList.remove('opacity-100');
+    progress.style.width = '0%';
+    modal.classList.add('scale-90'); modal.classList.remove('scale-100');
+    setTimeout(() => overlay.classList.add('hidden'), 300);
+    go('s-checkout');
+  }, 1800);
+}
+
+/* ---------------- keep summary / checkout / ticket in sync ---------------- */
+const MONTH = 'Nov';
+function egp(n){ return 'EGP ' + n.toFixed(2); }
+function paint(){
+  const sub = subtotal();
+  const offer = sub ? 60 : 0;
+  const total = Math.max(0, sub - offer + 20) + STATE.tip;
+  const { a, c, i } = counts();
+
+  document.getElementById('sum-exp').innerText = STATE.exp + ' - VOX Cinemas';
+  document.getElementById('sum-date').innerText = MONTH + ' ' + STATE.day + ', 2024';
+  document.getElementById('sum-time').innerText = STATE.time;
+  document.getElementById('sum-guests').innerText = guestText();
+  document.getElementById('sum-subtotal').innerText = egp(sub);
+  document.getElementById('sum-offer').innerText = '-' + egp(offer);
+  document.getElementById('sum-total').innerText = egp(total - STATE.tip);
+  document.getElementById('sum-payable').innerText = egp(total - STATE.tip);
+
+  document.getElementById('co-total').innerText = 'EGP ' + (total);
+  document.getElementById('co-points').innerText = Math.round(total * 1.9);
+
+  const t = STATE.ticket || {
+    title: 'VOX Cinemas Mall of Egypt',
+    venue: 'Mall of Egypt, 6th of October',
+    date: MONTH + ' ' + STATE.day + ', 2024',
+    time: STATE.time,
+    guests: String(a + c + i).padStart(2,'0'),
+    type: STATE.exp,
+    badge: 'Premium Access',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJJMsNGmZPDEYlAaacaTntMwClsl2bes9ehIIOB0t3hhhrsN1LQJsSg-8XGcv-bUYq8JFdqdzJywFpQh7vdoq2kJMNOn3e4F7sCDfkAEpV8FAI8UqHTxqDmrXTNOBuHINTGfWaGVHdwZYCqvmpOyuZdTOConFTtT3DoumrurMQJJrrqmgikPmG764HumiANyNtSAlmp-PUmYd1dC6PxpCtp9V10zjFO6hzVU-Axy1N3NcpQ6uzpCft'
+  };
+  document.getElementById('tk-title').innerText  = t.title;
+  document.getElementById('tk-venue').innerText  = t.venue;
+  document.getElementById('tk-badge').innerText  = t.badge;
+  document.getElementById('tk-img').src          = t.img;
+  document.getElementById('tk-guests').innerText = t.guests;
+  document.getElementById('tk-date').innerText   = t.date;
+  document.getElementById('tk-time').innerText   = t.time;
+  document.getElementById('tk-type').innerText   = t.type;
+}
+
+/* hold timer on the summary screen */
+(function(){
+  let s = 599;
+  setInterval(() => {
+    if (s > 0) s--;
+    const m = String(Math.floor(s / 60)).padStart(2,'0');
+    const ss = String(s % 60).padStart(2,'0');
+    const el = document.getElementById('hold-timer');
+    if (el) el.textContent = m + ':' + ss;
+  }, 1000);
+})();
+
+updateSummary();
+paint();
+
+/* ---------------------------------------------------------------
+   Live-demo hardening. The venue wi-fi at a presentation is not to
+   be trusted: every illustration here is a remote URL. If one fails
+   we hide the broken-image glyph and tint the card instead, so the
+   layout still reads as designed rather than as a bug.
+   ----------------------------------------------------------------*/
+(function () {
+  function degrade(img) {
+    img.classList.add('img-fallback');
+    var host = img.parentElement;
+    if (host && !host.classList.contains('imgwrap-failed')) {
+      host.classList.add('imgwrap-failed');
+    }
+  }
+  Array.prototype.forEach.call(document.images, function (img) {
+    if (img.complete && img.naturalWidth === 0) degrade(img);
+    img.addEventListener('error', function () { degrade(img); }, { once: true });
+  });
+})();
+
+/* Each scan is a fresh visitor: state lives in memory, so a page load
+   already resets everything. This just guarantees we open on Home even
+   if a browser restores scroll or a hash. */
+(function () {
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+})();
+</script>
+</body>
+</html>
